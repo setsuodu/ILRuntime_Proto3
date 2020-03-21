@@ -1,0 +1,15 @@
+{
+    "name": "Unity.Editor",
+    "references": [
+        "Unity.Scripts",
+        "Unity.ThirdParty"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
