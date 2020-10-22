@@ -458,6 +458,13 @@ public partial class BundleTools : Editor
         }
     }
 
+
+    [MenuItem("Tools/打包AB/编译热更工程", false, 21)]
+    private static void CompileHotFix()
+    {
+        RunBatch("compile_hotfix.bat");
+    }
+
     [MenuItem("Tools/打包AB/MoveDLL", false, 22)]
     private static void MoveDLL()
     {
@@ -477,6 +484,7 @@ public partial class BundleTools : Editor
 
         Directory.Delete(Application.streamingAssetsPath, true);
 
+        AssetDatabase.Refresh();
         Debug.Log("移动完成");
     }
 

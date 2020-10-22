@@ -21,4 +21,5 @@ Unity3D demo project for ILRuntime
 ### //TODO
 - [ ] 1. 与 [ILRuntime-Framework](https://github.com/setsuodu/ILRuntime-Framework) 工程合并，使Demo更完整。
 - [ ] 2. 打包热更新代码再自动化一点。允许打包单个资源。
+- [ ] 3. 使用包管理或其他方法，方便升级 ILRuntime 源码。
 

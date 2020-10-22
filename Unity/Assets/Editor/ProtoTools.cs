@@ -1,26 +1,29 @@
 ﻿using System.IO;
-using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using LitJson;
 
 #if UNITY_EDITOR
 public partial class BundleTools : Editor
 {
     #region 测试
 
-    [MenuItem("Tools/Protoc/运行批处理")]
-    private static void RunBatch()
+    //批处理文件统一放在同一个目录里管理，执行也统一在这里调用
+    public static void RunBatch(string batFileName)
     {
         DirectoryInfo unityFolder = new DirectoryInfo("Assets");
-        //string batPath = $"{unityFolder.Parent.Parent}/Protoc/helloworld.bat";
-        string batPath = $"{unityFolder.Parent.Parent}/Protoc/run.bat";
-        Debug.Log(batPath);
+        string batPath = $@"{unityFolder.Parent.Parent}\{batFileName}";
+        //Debug.Log(batPath);
         System.Diagnostics.Process proc = new System.Diagnostics.Process();
-        proc.StartInfo.FileName = batPath; // 初始化可执行文件名
+        proc.StartInfo.FileName = batPath; //初始化可执行文件名
         proc.Start();
+    }
+
+    [MenuItem("Tools/Protoc/生成Proto")]
+    private static void ConvertProto()
+    {
+        RunBatch("convert_proto.bat");
     }
 
     [MenuItem("Tools/测试/Print")]
