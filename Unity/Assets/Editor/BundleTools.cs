@@ -291,8 +291,9 @@ public partial class BundleTools : Editor
 
         //string outputPath = Path.Combine(Application.streamingAssetsPath, EditorUserBuildSettings.activeBuildTarget.ToString());
         string outputPath = Path.Combine(GetUnityDir(), EditorUserBuildSettings.activeBuildTarget.ToString());
-        if (!Directory.Exists(outputPath))
-            Directory.CreateDirectory(outputPath);
+        if (Directory.Exists(outputPath))
+            Directory.Delete(outputPath, true);
+        Directory.CreateDirectory(outputPath);
 
         for (int i = 0; i < files.Length; i++)
         {

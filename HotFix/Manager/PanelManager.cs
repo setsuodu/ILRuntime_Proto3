@@ -51,7 +51,7 @@ namespace HotFix
 
         public static void Test1()
         {
-            Debug.Log("Test1");
+            Debug.Log("PanelManager中的Test1");
         }
 
         public void Test2()

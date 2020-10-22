@@ -67,8 +67,8 @@ namespace Client
             appdomain.Invoke("HotFix.PanelManager", "Test1", null, null);
             //appdomain.Invoke("HotFix.PanelManager", "Test2", gameObject, null);
             //appdomain.Invoke("HotFix.PanelManager", "Test3", gameObject, "123");
-            appdomain.Invoke("HotFix.Proto3", "Test1", null, null);
-            appdomain.Invoke("HotFix.Proto3", "_TheMsg", null, null);
+            var obj = appdomain.Invoke("HotFix.Proto3", "Test1", null, null);
+            //appdomain.Invoke("HotFix.Proto3", "_TheMsg", null, null);
 
             GameObject music = new GameObject("IL_MusicManager");
             music.transform.SetParent(this.transform);

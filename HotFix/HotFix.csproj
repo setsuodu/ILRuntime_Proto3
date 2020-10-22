@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Proto3.cs" />
     <Compile Include="Google.Protobuf\ByteArray.cs" />
     <Compile Include="Google.Protobuf\ByteString.cs" />
     <Compile Include="Google.Protobuf\CodedInputStream.cs" />
