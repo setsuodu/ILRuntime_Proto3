@@ -16,8 +16,8 @@ public partial class BundleTools : Editor
     {
         DirectoryInfo unityFolder = new DirectoryInfo("Assets");
         //string batPath = $"{unityFolder.Parent.Parent}/Protoc/helloworld.bat";
-        string batPath = $"{unityFolder.Parent.Parent}/Protoc/bin/run.bat";
-        //Debug.Log(batPath);
+        string batPath = $"{unityFolder.Parent.Parent}/Protoc/run.bat";
+        Debug.Log(batPath);
         System.Diagnostics.Process proc = new System.Diagnostics.Process();
         proc.StartInfo.FileName = batPath; // 初始化可执行文件名
         proc.Start();
