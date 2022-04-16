@@ -13,6 +13,8 @@ namespace HotFix.View
 
         void Awake()
         {
+            Debug.Log("UI_Login.Awake");
+
             m_HelpBtn = transform.Find("HelpButton").GetComponent<Button>();
             m_QQBtn = transform.Find("QQButton").GetComponent<Button>();
             m_WXBtn = transform.Find("WXButton").GetComponent<Button>();

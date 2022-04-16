@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.Text;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using LitJson;
-
 #if UNITY_EDITOR
+using UnityEditor;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 public partial class BundleTools : Editor
 {
     #region 路径
@@ -486,6 +486,23 @@ public partial class BundleTools : Editor
 
         AssetDatabase.Refresh();
         Debug.Log("移动完成");
+    }
+
+    [MenuItem("Assets/Open Hotfix Project", false, 1000)]
+    private static void OpenHotfixProject()
+    {
+        DirectoryInfo unityFolder = new DirectoryInfo("Assets");
+        string batPath = $@"{unityFolder.Parent.Parent}\HotFix\HotFix_Project.sln";
+        //Debug.Log(batPath);
+        Process proc = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = batPath,
+                CreateNoWindow = true,
+            },
+        };
+        proc.Start();
     }
 
     #endregion

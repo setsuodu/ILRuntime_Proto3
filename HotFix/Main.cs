@@ -74,6 +74,11 @@ namespace HotFix
             go.AddComponent<View.UI_Login>();
         }
 
+        public static void UI_RegisterAdapter(GameObject go)
+        {
+            go.AddComponent<View.UI_Register>();
+        }
+
         #endregion
 
         #region Manager

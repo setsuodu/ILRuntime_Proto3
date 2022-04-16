@@ -1,10 +1,9 @@
 ﻿using System.IO;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-
 #if UNITY_EDITOR
+using UnityEditor;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 public partial class BundleTools : Editor
 {
     #region 测试
@@ -15,7 +14,7 @@ public partial class BundleTools : Editor
         DirectoryInfo unityFolder = new DirectoryInfo("Assets");
         string batPath = $@"{unityFolder.Parent.Parent}\{batFileName}";
         Debug.Log(batPath);
-        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+        Process proc = new Process();
         proc.StartInfo.FileName = batPath; //初始化可执行文件名
         proc.Start();
     }
