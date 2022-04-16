@@ -5,5 +5,7 @@ obj/
 .vs
 Library/
 Temp/
+
 /Unity/StandaloneWindows64
 /Unity/Assets/StreamingAssets
+/Unity/Logs/
