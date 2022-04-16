@@ -3,10 +3,18 @@ Unity3D demo project for ILRuntime
 
 这个是ILRuntime整合Proto3的U3D示例工程
 
+### 版本
+- Unity2018.4.36f1
+- VS2019 Professional
+- Proto 3
+- ILRuntime 1.4
+- wampserver 3.2.6
+
 ### 环境配置
-- 1. 下载 [http://protoc-3.x.x-win64.zip](https://github.com/protocolbuffers/protobuf/releases)，解压将其中的protoc.exe拷贝到 ``C:\windows\system32``，使用命令测试 proto环境 ``protoc --version``。
-- 2. 运行 ``.\ILRuntimeQ\Protoc\run.bat``，将 *.proto 转化为 *.cs。
-- 3. Web服务器配置：
+- 1. ``'devenv' 不是内部或外部命令``。系统环境变量\Path\中，添加devenv.exe的目录。
+- 2. 下载 [http://protoc-3.x.x-win64.zip](https://github.com/protocolbuffers/protobuf/releases)，解压将其中的protoc.exe拷贝到 ``C:\windows\system32``，使用命令测试 proto环境 ``protoc --version``。
+- 3. 运行 ``.\ILRuntimeQ\Protoc\run.bat``，将 *.proto 转化为 *.cs。
+- 4. Web服务器配置：
 ```
 .\download
 .\download\StandaloneWindows64

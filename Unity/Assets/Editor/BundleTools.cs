@@ -46,7 +46,7 @@ public partial class BundleTools : Editor
     }
     private static string GetServerDir()
     {
-        string path = @"D:\wamp\www\download";
+        string path = @"D:\wamp64\www\download";
         return path;
     }
 
