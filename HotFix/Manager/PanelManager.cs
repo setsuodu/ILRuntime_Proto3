@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace HotFix
@@ -15,6 +14,9 @@ namespace HotFix
             Instance = this;
             Parent = GameObject.Find("Canvas").transform;
         }
+
+        public void GetActivePanel() { }
+        public void GetPanel(string className) { }
 
         //public void CreatePanel(string className, System.Action func = null)
         public void CreatePanel(string className)
@@ -46,6 +48,8 @@ namespace HotFix
             Destroy(widget.gameObject);
         }
 
+        public void CloseAll(string className) { }
+        public void CloseAllWithout(string className) { }
 
         #region 测试
 

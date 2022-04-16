@@ -16,12 +16,12 @@ namespace HotFix.View
 
             m_CloseBtn.onClick.AddListener(OnRegisterBtnClick);
 
-            TheMsg msg = new TheMsg
-            {
-                Name = "Jack",
-                Content = "Update",
-            };
-            Debug.Log($"Test proto: {msg.Name}, {msg.Content}");
+            //TheMsg msg = new TheMsg
+            //{
+            //    Name = "Jack",
+            //    Content = "Update",
+            //};
+            //Debug.Log($"Test proto: {msg.Name}, {msg.Content}");
         }
 
         void OnDestroy()

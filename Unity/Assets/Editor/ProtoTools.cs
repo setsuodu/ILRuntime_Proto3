@@ -6,7 +6,7 @@ using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 public partial class BundleTools : Editor
 {
-    static void ExecuteCommand(string command)
+    protected static void ExecuteCommand(string command)
     {
         /* cmd /c dir 是执行完dir命令后关闭命令窗口。
          * cmd /k dir 是执行完dir命令后不关闭命令窗口。
@@ -21,13 +21,10 @@ public partial class BundleTools : Editor
         startInfo.Arguments = @"/k " + command;
         p.StartInfo = startInfo;
         p.Start();
-        //p.WaitForExit();
+        //p.WaitForExit(); //等待一定时间（ms）退出
     }
-
-    #region 测试
-
     //批处理文件统一放在同一个目录里管理，执行也统一在这里调用
-    public static void RunBatch(string batFileName)
+    protected static void RunBatch(string batFileName)
     {
         DirectoryInfo unityFolder = new DirectoryInfo("Assets");
         string batPath = $@"{unityFolder.Parent.Parent}\{batFileName}";
@@ -36,6 +33,8 @@ public partial class BundleTools : Editor
         proc.StartInfo.FileName = batPath; //初始化可执行文件名
         proc.Start();
     }
+
+    #region 测试
 
     [MenuItem("Tools/Protoc/生成Proto")]
     private static void ConvertProto()
