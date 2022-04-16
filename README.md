@@ -4,7 +4,7 @@ Unity3D demo project for ILRuntime
 这个是ILRuntime整合Proto3的U3D示例工程
 
 ### 版本
-- Unity2018.4.36f1
+- Unity2020.3.30f1c1
 - VS2019 Professional
 - Proto 3
 - ILRuntime 1.4
@@ -27,7 +27,7 @@ Unity3D demo project for ILRuntime
 - 3. 再打包AB，将热更新代码座位AB打包。
 
 ### //TODO
-- [ ] 1. 与 [ILRuntime-Framework](https://github.com/setsuodu/ILRuntime-Framework) 工程合并，使Demo更完整。
+- [x] 1. 与 [ILRuntime-Framework](https://github.com/setsuodu/ILRuntime-Framework) 工程合并，使Demo更完整。
 - [ ] 2. 打包热更新代码再自动化一点。允许打包单个资源。
 - [ ] 3. 使用包管理或其他方法，方便升级 ILRuntime 源码。
 

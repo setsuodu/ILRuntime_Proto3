@@ -458,53 +458,6 @@ public partial class BundleTools : Editor
         }
     }
 
-
-    [MenuItem("Tools/打包AB/编译热更工程", false, 21)]
-    private static void CompileHotFix()
-    {
-        RunBatch("compile_hotfix.bat");
-    }
-
-    [MenuItem("Tools/打包AB/MoveDLL", false, 22)]
-    private static void MoveDLL()
-    {
-        string dllPath = Path.Combine(Application.streamingAssetsPath, "HotFix.dll");
-        if (!File.Exists(dllPath)) 
-        {
-            Debug.LogError($"文件不存在：{dllPath}");
-            return;
-        }
-
-        string bytesPath = Path.Combine(Application.dataPath, "AssetBundle/Config/HotFix.dll.bytes");
-        if (File.Exists(bytesPath)) 
-        {
-            File.Delete(bytesPath);
-        }
-        File.Move(dllPath, bytesPath);
-
-        Directory.Delete(Application.streamingAssetsPath, true);
-
-        AssetDatabase.Refresh();
-        Debug.Log("移动完成");
-    }
-
-    [MenuItem("Assets/Open Hotfix Project", false, 1000)]
-    private static void OpenHotfixProject()
-    {
-        DirectoryInfo unityFolder = new DirectoryInfo("Assets");
-        string batPath = $@"{unityFolder.Parent.Parent}\HotFix\HotFix_Project.sln";
-        //Debug.Log(batPath);
-        Process proc = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = batPath,
-                CreateNoWindow = true,
-            },
-        };
-        proc.Start();
-    }
-
     #endregion
 }
 #endif

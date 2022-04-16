@@ -15,6 +15,13 @@ namespace HotFix.View
             m_CloseBtn = transform.Find("CloseButton").GetComponent<Button>();
 
             m_CloseBtn.onClick.AddListener(OnRegisterBtnClick);
+
+            TheMsg msg = new TheMsg
+            {
+                Name = "Jack",
+                Content = "Update",
+            };
+            Debug.Log($"Test proto: {msg.Name}, {msg.Content}");
         }
 
         void OnDestroy()
@@ -26,7 +33,7 @@ namespace HotFix.View
 
         void OnRegisterBtnClick()
         {
-            //this.PopUp();
+            //this.PopUp(); //报错
             PanelManager.Instance.ClosePanel(this);
             Debug.Log("关闭");
         }

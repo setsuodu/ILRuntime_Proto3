@@ -3,5 +3,5 @@ guid: a4ce9a0797276264191d5d4af0ce5b10
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: prefabs/ui/ui_login
+  assetBundleVariant: unity3d
