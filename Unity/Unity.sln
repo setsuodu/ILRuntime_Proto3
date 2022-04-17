@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Scripts", "Unity.Scri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Editor", "Unity.Editor.csproj", "{CD311104-1830-B119-81B6-5DBEE2467FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotFix", "..\HotFix\HotFix.csproj", "{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotFix_Project", "..\HotFix\HotFix_Project.csproj", "{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -42,6 +42,11 @@ public partial class BundleTools : Editor
         RunBatch("convert_proto.bat");
     }
 
+    [MenuItem("Tools/取消读条")]
+    static void CancelableProgressBar()
+    {
+        EditorUtility.ClearProgressBar();
+    }
     [MenuItem("Tools/测试/CMD")]
     private static void TestCMD()
     {

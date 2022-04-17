@@ -3,14 +3,18 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using LitJson;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 /// <summary>
 /// 资源管理工具
 /// </summary>
 public class AssetBundleManager : MonoBehaviour
 {
+    public const string BUNDLES_FOLDER = "Assets/Bundles";
+    public const string PREFAB_FOLDER = "Assets/Bundles/Prefabs";
+
     // 存放ab包的根目录
     private static ABInfo[] ABInfos;
     private static string[] permanentConfig = new string[]
@@ -117,19 +121,30 @@ public class AssetBundleManager : MonoBehaviour
 
     public static AudioClip LoadAudioClip(string _fileName)
     {
+#if UNITY_EDITOR && !USE_ASSETBUNDLE
+        string filePath = $"{BUNDLES_FOLDER}/{_fileName}.mp3";
+        var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(filePath);
+#else
         AssetBundle asset = AssetBundleManager.LoadAsset(_fileName);
         AudioClip clip = asset.LoadAllAssets()[0] as AudioClip;
         asset.Unload(false);
-        //Debug.LogFormat("<color=red>{0}</color>", _fileName);
+#endif
+        //Debug.Log($"<color=red>{_fileName}</color>");
         return clip;
     }
 
     // ILR代码
     public static byte[] LoadDLL()
     {
+#if UNITY_EDITOR && !USE_ASSETBUNDLE
+        string filePath = $"Assets/AssetBundle/Config/Hotfix.dll.bytes";
+        var prefab = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
+        return prefab.bytes;
+#else
         AssetBundle asset = AssetBundleManager.LoadAsset("config/hotfix.unity3d");
         TextAsset textAsset = asset.LoadAllAssets()[0] as TextAsset;
         asset.Unload(false);
         return textAsset.bytes;
+#endif
     }
 }

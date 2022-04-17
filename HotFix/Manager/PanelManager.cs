@@ -7,21 +7,26 @@ namespace HotFix
     {
         public static PanelManager Instance;
 
-        private Transform Parent;
+        protected Transform Parent;
+
+        // UI存储栈
+        List<UIWidget> stack = new List<UIWidget>();
+        List<UIWidget> recyclePool = new List<UIWidget>();
 
         void Awake()
         {
             Instance = this;
             Parent = GameObject.Find("Canvas").transform;
+            Debug.Log($"Parent::{Parent.name}");
         }
 
         public void GetActivePanel() { }
         public void GetPanel(string className) { }
 
-        //public void CreatePanel(string className, System.Action func = null)
         public void CreatePanel(string className)
         {
             Debug.Log($"[Hotfix] CreatePanel: {className}");
+            //Debug.Log($"Parent:{Parent.name}");
 
             string fileName = $"prefabs/ui/{className.ToLower()}.unity3d";
             //GameObject go = AssetBundleManager.LoadGameObject(fileName, Parent);

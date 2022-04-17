@@ -5,8 +5,6 @@ using UnityEngine;
 using LitJson;
 #if UNITY_EDITOR
 using UnityEditor;
-using System.Diagnostics;
-using Debug = UnityEngine.Debug;
 public partial class BundleTools : Editor
 {
     #region 路径
