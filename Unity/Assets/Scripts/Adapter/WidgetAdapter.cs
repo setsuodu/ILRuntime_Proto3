@@ -6,7 +6,6 @@ using System.Collections;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.Runtime.Intepreter;
 using ILRuntime.CLR.Method;
-//using eeGames.Widget;
 
 public class WidgetAdapter : CrossBindingAdaptor
 {

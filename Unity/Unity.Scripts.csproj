@@ -62,7 +62,7 @@
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\AssetBundleManager.cs" />
     <Compile Include="Assets\Scripts\UI\UI_CheckUpdate.cs" />
-    <Compile Include="Assets\Scripts\Model\ResponseModel.cs" />
+    <Compile Include="Assets\Scripts\Config\ResponseModel.cs" />
     <Compile Include="Assets\Scripts\Managers\PanelManager.cs" />
     <Compile Include="Assets\Scripts\Utils\Md5Utils.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
