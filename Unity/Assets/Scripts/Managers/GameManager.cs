@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 using LitJson;
 
 public class GameManager : MonoBehaviour
@@ -44,6 +45,28 @@ public class GameManager : MonoBehaviour
     // 读取游戏配置（ab包下载地址，游戏版本号，公告等）
     IEnumerator LoadConfig()
     {
+        UnityWebRequest request = new UnityWebRequest
+        {
+            url = ConstValue.CONFIG_URL,
+            method = "GET",
+        };
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        yield return request.SendWebRequest();
+        Debug.Log($"Status code: {request.responseCode}");
+        if (request.responseCode != 200)
+        {
+            Debug.LogError($"error code = {request.responseCode}");
+            yield break;
+        }
+        else
+        {
+            string text = request.downloadHandler.text;
+            Debug.Log(text);
+            gameConfig = JsonMapper.ToObject<GameConfig>(text);
+            request.Dispose();
+        }
+
+        /*
         WWW www = new WWW(ConstValue.CONFIG_URL);
         while (!www.isDone) yield return null;
         yield return www;
@@ -52,8 +75,10 @@ public class GameManager : MonoBehaviour
             Debug.LogError(www.error);
             yield break;
         }
+        Debug.Log(www.text);
         gameConfig = JsonMapper.ToObject<GameConfig>(www.text);
         www.Dispose();
+        */
 
         yield return CheckUpdateAsync(OnInited);
     }

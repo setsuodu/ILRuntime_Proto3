@@ -54,9 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\Plugins\ILRuntim.Mono.Cecil.dll" />
-    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\Plugins\ILRuntime.Mono.Cecil.Pdb.dll" />
-    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\Plugins\ILRuntime.Mono.Cecil.Mdb.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Config\GameConfig.cs" />
@@ -320,13 +317,34 @@
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="ILRuntime.Mono.Cecil.Pdb">
-      <HintPath>Assets\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\ThirdParty\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\ThirdParty\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="ILRuntim.Mono.Cecil">
-      <HintPath>Assets\Plugins\ILRuntim.Mono.Cecil.dll</HintPath>
+      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\ThirdParty\Demigiant\DemiLib\DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="ILRuntime.Mono.Cecil.Mdb">
-      <HintPath>Assets\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+      <HintPath>Assets\ThirdParty\Demigiant\DemiLib\Editor\DemiEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets\ThirdParty\Demigiant\DOTween\DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\ThirdParty\Demigiant\DOTween\DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\ThirdParty\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
