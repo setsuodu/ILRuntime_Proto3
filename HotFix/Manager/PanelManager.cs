@@ -7,7 +7,7 @@ namespace HotFix
     {
         public static PanelManager Instance;
 
-        protected Transform Parent;
+        private Transform Parent;
 
         // UI存储栈
         List<UIWidget> stack = new List<UIWidget>();
@@ -17,7 +17,7 @@ namespace HotFix
         {
             Instance = this;
             Parent = GameObject.Find("Canvas").transform;
-            Debug.Log($"Parent::{Parent.name}");
+            Debug.Log($"Parent:::{Parent.name}");
         }
 
         public void GetActivePanel() { }
@@ -26,7 +26,6 @@ namespace HotFix
         public void CreatePanel(string className)
         {
             Debug.Log($"[Hotfix] CreatePanel: {className}");
-            //Debug.Log($"Parent:{Parent.name}");
 
             string fileName = $"prefabs/ui/{className.ToLower()}.unity3d";
             //GameObject go = AssetBundleManager.LoadGameObject(fileName, Parent);
@@ -39,11 +38,14 @@ namespace HotFix
             //go.transform.localScale = Vector3.one;
 
             //if (func != null) func.Call(go);
+
+            //Debug.Log($"create: go:{go.name}");
+            //Debug.Log($"create: Parent:{Parent != null}");
         }
 
         public void ClosePanel(string className)
         {
-            var panelObj = Parent.Find(className);
+            Transform panelObj = Parent.Find(className);
             if (panelObj == null) return;
             Destroy(panelObj.gameObject);
         }
@@ -51,6 +53,8 @@ namespace HotFix
         {
             Debug.Log("ClosePanel...");
             Destroy(widget.gameObject);
+            Debug.Log($"close: widget:{widget.name}");
+            Debug.Log($"close: Parent:{Parent.name}");
         }
 
         public void CloseAll(string className) { }

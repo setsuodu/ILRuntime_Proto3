@@ -64,10 +64,10 @@ namespace Client
 
         void OnHotFixLoaded()
         {
-            appdomain.Invoke("HotFix.PanelManager", "Test1", null, null);
+            //appdomain.Invoke("HotFix.PanelManager", "Test1", null, null);
             //appdomain.Invoke("HotFix.PanelManager", "Test2", gameObject, null);
             //appdomain.Invoke("HotFix.PanelManager", "Test3", gameObject, "123");
-            var obj = appdomain.Invoke("HotFix.Proto3", "Test1", null, null);
+            //var obj = appdomain.Invoke("HotFix.Proto3", "Test1", null, null);
             //appdomain.Invoke("HotFix.Proto3", "_TheMsg", null, null);
 
             GameObject music = new GameObject("IL_MusicManager");
@@ -82,9 +82,9 @@ namespace Client
             panelScript.className = "PanelManager";
             panelScript.Run();
 
-            //通过ILR加载UI
+            // 通过ILR加载UI
             appdomain.Invoke("HotFix.PanelManager", "CreatePanel", gameObject, "UI_Login");
-            //通过本地加载UI
+            // 通过本地加载UI
             //PanelManager.Instance.CreatePanel("UI_Login");
         }
     }
