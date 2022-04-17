@@ -138,13 +138,12 @@ public class AssetBundleManager : MonoBehaviour
     {
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
         string filePath = $"Assets/AssetBundle/Config/Hotfix.dll.bytes";
-        var prefab = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
-        return prefab.bytes;
+        TextAsset textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
 #else
         AssetBundle asset = AssetBundleManager.LoadAsset("config/hotfix.unity3d");
         TextAsset textAsset = asset.LoadAllAssets()[0] as TextAsset;
         asset.Unload(false);
-        return textAsset.bytes;
 #endif
+        return textAsset.bytes;
     }
 }

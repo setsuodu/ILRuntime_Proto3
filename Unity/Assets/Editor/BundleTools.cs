@@ -363,6 +363,7 @@ public partial class BundleTools : Editor
         ClearAssetBundle();
 
         Deploy(target);
+        AssetDatabase.Refresh();
 
         Debug.Log("打包完成");
     }
@@ -392,7 +393,6 @@ public partial class BundleTools : Editor
         Debug.Log("打包完成");
     }
 
-    [MenuItem("Tools/打包AB/部署")]
     private static void Deploy(BuildTarget target)
     {
         string srcPath = Path.Combine(GetUnityDir(), target.ToString());
@@ -418,6 +418,7 @@ public partial class BundleTools : Editor
         //dirInfo.MoveTo(dstPath);
         CopyFolder(srcPath, dstPath);
         Debug.Log("部署完成");
+        Directory.Delete(srcPath, true);
     }
     private static void CopyFolder(string strFromPath, string strToPath)
     {
