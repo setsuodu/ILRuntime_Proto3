@@ -54,9 +54,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\Plugins\ILRuntim.Mono.Cecil.dll" />
-    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\Plugins\ILRuntime.Mono.Cecil.Pdb.dll" />
-    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\Plugins\ILRuntime.Mono.Cecil.Mdb.dll" />
+    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll" />
+    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll" />
+    <Analyzer Include="D:\我的资料库\Documents\GitHub\ILRuntimeQ\Unity\Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ThirdParty\Google.Protobuf\FrameworkPortability.cs" />
@@ -235,7 +235,10 @@
     <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\OpCodes\OpCodeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll" />
     <None Include="Assets\ThirdParty\Unity.ThirdParty.asmdef" />
+    <None Include="Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll" />
+    <None Include="Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -473,13 +476,13 @@
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="ILRuntime.Mono.Cecil.Mdb">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="ILRuntim.Mono.Cecil">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime\ILRuntim.Mono.Cecil.dll</HintPath>
+      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="ILRuntime.Mono.Cecil.Pdb">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
