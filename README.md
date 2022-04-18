@@ -9,6 +9,7 @@ Unity3D demo project for ILRuntime
 - Proto 3.0.0-win32
 - ILRuntime 2.0.2
 - wampserver 3.2.6
+- .NetCore 3.1.0
 
 ### 环境配置
 - 1. ``'devenv' 不是内部或外部命令``。系统环境变量\Path\中，添加devenv.exe的目录。
@@ -32,7 +33,6 @@ Unity3D demo project for ILRuntime
 - 3. 再打包AB，将热更新代码座位AB打包。
 
 ### //TODO
-- [x] 1. 与 [ILRuntime-Framework](https://github.com/setsuodu/ILRuntime-Framework) 工程合并，使Demo更完整。
+- [x] 1. 使用包管理或其他方法，方便升级 ILRuntime 源码。
 - [ ] 2. 打包热更新代码再自动化一点。允许打包单个资源。
-- [ ] 3. 使用包管理或其他方法，方便升级 ILRuntime 源码。
 
