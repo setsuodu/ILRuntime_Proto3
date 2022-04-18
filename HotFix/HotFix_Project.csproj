@@ -67,6 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lobby\Client\ClientPlayer.cs" />
+    <Compile Include="Lobby\Client\ClientPlayerManager.cs" />
+    <Compile Include="Lobby\Client\ClientRoom.cs" />
+    <Compile Include="Lobby\Shared\BasePlayer.cs" />
+    <Compile Include="Lobby\Shared\BaseRoom.cs" />
+    <Compile Include="Lobby\Shared\GamePackets.cs" />
+    <Compile Include="Manager\AudioManager.cs" />
+    <Compile Include="Message\Login.cs" />
     <Compile Include="Proto3.cs" />
     <Compile Include="Google.Protobuf\ByteArray.cs" />
     <Compile Include="Google.Protobuf\ByteString.cs" />
@@ -140,7 +148,7 @@
     <Compile Include="Google.Protobuf\WellKnownTypes\WrappersPartial.cs" />
     <Compile Include="Google.Protobuf\WireFormat.cs" />
     <Compile Include="Manager\MusicManager.cs" />
-    <Compile Include="Manager\PanelManager.cs" />
+    <Compile Include="Manager\UIManager.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Demo\TestValueType.cs" />
     <Compile Include="Demo\TestMonoBehaviour.cs" />
@@ -152,10 +160,16 @@
     <Compile Include="Demo\InstanceClass.cs" />
     <Compile Include="Message\TheMsg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\UI_Login.cs" />
-    <Compile Include="View\UI_Register.cs" />
+    <Compile Include="ProtobufferTool.cs" />
+    <Compile Include="TCP\Buffer.cs" />
+    <Compile Include="TCP\ChatClient.cs" />
+    <Compile Include="TCP\TcpClient.cs" />
+    <Compile Include="TCP\TcpHelper.cs" />
+    <Compile Include="UI\UIBase.cs" />
+    <Compile Include="UI\UI_Login.cs" />
+    <Compile Include="UI\UI_Main.cs" />
+    <Compile Include="UI\UI_Register.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Google.Protobuf\ByteArray.cs.meta" />
     <None Include="Google.Protobuf\ByteString.cs.meta" />

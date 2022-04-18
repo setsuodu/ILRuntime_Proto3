@@ -56,27 +56,28 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Config\GameConfig.cs" />
-    <Compile Include="Assets\Scripts\Utils\FixShader.cs" />
-    <Compile Include="Assets\Scripts\Model\ILGlobal.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\AssetBundleManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UI_CheckUpdate.cs" />
-    <Compile Include="Assets\Scripts\Config\ResponseModel.cs" />
-    <Compile Include="Assets\Scripts\Managers\PanelManager.cs" />
-    <Compile Include="Assets\Scripts\Utils\Md5Utils.cs" />
-    <Compile Include="Assets\Scripts\Utils\Utils.cs" />
-    <Compile Include="Assets\Scripts\Adapter\WidgetAdapter.cs" />
-    <Compile Include="Assets\Scripts\Config\UIWidget.cs" />
-    <Compile Include="Assets\Scripts\Config\ABInfo.cs" />
-    <Compile Include="Assets\Scripts\Model\ILWidget.cs" />
     <Compile Include="Assets\Scripts\Utils\UnitySingletonClass.cs" />
-    <Compile Include="Assets\Scripts\Model\ILMonoBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Utils\ThreadDownload.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Configs\GameConfig.cs" />
+    <Compile Include="Assets\Scripts\Configs\ABInfo.cs" />
+    <Compile Include="Assets\Scripts\Adapter\ILMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Utils\FixShader.cs" />
+    <Compile Include="Assets\Scripts\Utils\Md5Utils.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_CheckUpdate.cs" />
+    <Compile Include="Assets\Scripts\Adapter\AdaptHelper.cs" />
+    <Compile Include="Assets\Scripts\UI\UIBase.cs" />
+    <Compile Include="Assets\Scripts\Managers\ResManager.cs" />
+    <Compile Include="Assets\Scripts\Adapter\UIBaseAdapter.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\ThreadDownload.cs" />
+    <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\EventManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ConstValue.cs" />
+    <Compile Include="Assets\Scripts\Adapter\Adapt_IMessage.cs" />
+    <Compile Include="Assets\Scripts\Adapter\ILGlobal.cs" />
+    <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Adapter\ProtobufAdapter.cs" />
+    <Compile Include="Assets\Scripts\Adapter\ILUIBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Unity.Scripts.asmdef" />
@@ -105,6 +106,9 @@
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AutoStreamingModule">
+      <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AutoStreamingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
@@ -316,23 +320,23 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ILRuntime.Mono.Cecil.Pdb">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\ThirdParty\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime.Mono.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.ourpalm.ilruntime@2.0.2\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime.Mono.Cecil">
+      <HintPath>Library\PackageCache\com.ourpalm.ilruntime@2.0.2\Plugins\ILRuntime.Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime.Mono.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.ourpalm.ilruntime@2.0.2\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\ThirdParty\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
-    <Reference Include="ILRuntim.Mono.Cecil">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\ThirdParty\Demigiant\DemiLib\DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ILRuntime.Mono.Cecil.Mdb">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
       <HintPath>Assets\ThirdParty\Demigiant\DemiLib\Editor\DemiEditor.dll</HintPath>
@@ -693,6 +697,9 @@
     </Reference>
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime">
+      <HintPath>Library\ScriptAssemblies\ILRuntime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

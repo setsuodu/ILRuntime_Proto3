@@ -9,7 +9,7 @@ public partial class BundleTools : Editor
 {
     #region 路径
 
-    private static string patchName = "AssetBundle";
+    private static string patchName = "Bundles";
 
     private static string _srcPath;
     private static string srcPath
@@ -234,13 +234,13 @@ public partial class BundleTools : Editor
 
     private static void MakeVersion()
     {
-        string assetBundlePath = Path.Combine(Application.streamingAssetsPath, "AssetBundle/AssetBundle");
+        string assetBundlePath = Path.Combine(Application.streamingAssetsPath, "Bundles/Bundles");
         if (!File.Exists(assetBundlePath))
         {
             Debug.LogError("assetBundle不存在");
             return;
         }
-        string manifestPath = Path.Combine(Application.streamingAssetsPath, "AssetBundle/AssetBundle.manifest");
+        string manifestPath = Path.Combine(Application.streamingAssetsPath, "Bundles/Bundles.manifest");
         if (!File.Exists(manifestPath))
         {
             Debug.LogError("manifest不存在");
@@ -256,7 +256,7 @@ public partial class BundleTools : Editor
         for (int i = 0; i < bundles.Length; i++) 
         {
             //计算文件md5，写入json
-            string filePath = Path.Combine(Application.streamingAssetsPath, "AssetBundle/" + bundles[i]);
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Bundles/" + bundles[i]);
             string md5 = GetMD5HashFromFile(filePath);
             string[] depends = manifest.GetAllDependencies(bundles[i]);
             ABInfo fs = new ABInfo(bundles[i], md5, depends);
@@ -269,7 +269,7 @@ public partial class BundleTools : Editor
         bundle.Unload(false);
         bundle = null;
 
-        string assetsPath = Path.Combine(Application.streamingAssetsPath, "AssetBundle/assets.bytes");
+        string assetsPath = Path.Combine(Application.streamingAssetsPath, "Bundles/assets.bytes");
         File.WriteAllText(assetsPath, jsonStr);
     }
 
@@ -310,7 +310,7 @@ public partial class BundleTools : Editor
 
     private static void ClearAssetBundle()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, "AssetBundle");
+        string filePath = Path.Combine(Application.streamingAssetsPath, "Bundles");
         Directory.Delete(filePath, true);
     }
 
@@ -396,16 +396,16 @@ public partial class BundleTools : Editor
     private static void Deploy(BuildTarget target)
     {
         string srcPath = Path.Combine(GetUnityDir(), target.ToString());
-        //Debug.Log(srcPath);
+        //Debug.Log($"from: {srcPath}");
         if (!Directory.Exists(srcPath))
         {
             Debug.LogError($"src不存在：{srcPath}");
             return;
         }
 
-        string dstPath = $@"{GetServerDir()}\{target}";
-        //string dstPath = $@"{GetServerDir()}";
-        //Debug.Log(dstPath);
+        string dstPath = $@"{Application.persistentDataPath}\{target}"; //本地部署
+        //string dstPath = $@"{GetServerDir()}\{target}"; //远程部署
+        //Debug.Log($"to: {dstPath}");
         if (Directory.Exists(dstPath))
         {
             Debug.Log($"dst存在：{dstPath}，先删除");
@@ -417,8 +417,8 @@ public partial class BundleTools : Editor
         //DirectoryInfo dirInfo = new DirectoryInfo(srcPath);
         //dirInfo.MoveTo(dstPath);
         CopyFolder(srcPath, dstPath);
-        Debug.Log("部署完成");
-        Directory.Delete(srcPath, true);
+        Debug.Log($"部署完成\n{srcPath}--->\n{dstPath}");
+        Directory.Delete(srcPath, true); //删除 ./StandaloneWindows64
     }
     private static void CopyFolder(string strFromPath, string strToPath)
     {

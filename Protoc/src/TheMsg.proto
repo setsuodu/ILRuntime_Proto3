@@ -1,6 +1,8 @@
 syntax = "proto3";
 
+option csharp_namespace = "HotFix";
+
 message TheMsg {
   string name = 1;
-  int32 num = 2;
+  string content = 2;
 }

@@ -1,14 +1,17 @@
 {
     "name": "Unity.Scripts",
+    "rootNamespace": "",
     "references": [
-        "Unity.ThirdParty"
+        "GUID:7a1fa966b0ea23f40a6a4dc4dab1e297",
+        "GUID:5e2444ede58c55a4dac88c7a300e017c"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

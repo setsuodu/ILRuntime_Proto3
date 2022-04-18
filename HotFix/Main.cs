@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Google.Protobuf;
 
 namespace HotFix
@@ -7,31 +6,14 @@ namespace HotFix
     public class Main
     {
         #region 测试
-
-        //public static void MyDemoAdapter(GameObject go)
-        //{
-        //    go.AddComponent<MyDemo>();
-        //}
-
-        //public static void YourDemoAdapter(GameObject go)
-        //{
-        //    go.AddComponent<YourDemo>();
-        //    YourDemo loader = go.GetComponent<YourDemo>();
-
-        //    Debug.Log("<color=red>YourDemo.YourDemoTest mb= </color>" + loader);
-        //    loader.Test();
-        //}
-
         public static void Print() 
         {
             Debug.Log("Test Print");
         }
-
         public void Proto()
         {
             ///*
             #region Class序列化成二进制
-            //var msg = new Tutorial.TheMsg();
             var msg = new HotFix.TheMsg();
             msg.Name = "am the name";
             msg.Content = "haha";
@@ -46,7 +28,6 @@ namespace HotFix
             #endregion
 
             #region 二进制反序列化成Class
-            //var msg2 = Tutorial.TheMsg.Parser.ParseFrom(bmsg);
             var msg2 = HotFix.TheMsg.Parser.ParseFrom(bmsg);
             Debug.Log(string.Format("The Msg2 is ( Name:{0}, Num:{1} )", msg2.Name, msg2.Content));
             #endregion
@@ -64,35 +45,43 @@ namespace HotFix
             Debug.Log(string.Format("The Msg2 is ( Name:{0}, Num:{1} )", msg2.Name, msg2.Content));
             */
         }
-
         #endregion
 
-        #region UI
+        #region Adapter
 
+        // 所有UI注册在这里
         public static void UI_LoginAdapter(GameObject go)
         {
-            go.AddComponent<View.UI_Login>();
+            //var ui = go.AddComponent<UI_Login>();
+            Debug.Log($"AddComponent<UI_Login>");
         }
-
         public static void UI_RegisterAdapter(GameObject go)
         {
-            go.AddComponent<View.UI_Register>();
+            //var ui = go.AddComponent<UI_Register>();
+            Debug.Log($"AddComponent<UI_Register>");
+        }
+        public static void UI_MainAdapter(GameObject go)
+        {
+            //var ui = go.AddComponent<UI_Main>();
+            Debug.Log($"AddComponent<UI_Main>");
         }
 
-        #endregion
-
-        #region Manager
-
+        // Manager注册在这里
         public static void MusicManagerAdapter(GameObject go)
         {
             go.AddComponent<MusicManager>();
         }
-
-        public static void PanelManagerAdapter(GameObject go)
+        public static void UIManagerAdapter(GameObject go)
         {
-            go.AddComponent<PanelManager>();
+            go.AddComponent<UIManager>();
         }
 
         #endregion
+
+        public static void Init()
+        {
+            //UIManager.Get().CreatePanel("UI_Login");
+            UIManager.Get().Push<UI_Login>();
+        }
     }
 }

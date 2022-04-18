@@ -7,11 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using LitJson;
 
-public class UI_CheckUpdate : UIWidget
+public class UI_CheckUpdate : UIBase
 {
     private static string cloudPath;
     private static string localPath;
-    private List<ABInfo> downloadList = new List<ABInfo>();
+    private List<JsonAssets> downloadList = new List<JsonAssets>();
     [SerializeField] private Slider m_progressSlider;
     [SerializeField] private Text m_progressText;
     private int fileCount = 0;
@@ -35,7 +35,8 @@ public class UI_CheckUpdate : UIWidget
     public IEnumerator StartCheck(System.Action action)
     {
         // 1. 读取网上(assets.bytes)
-        ABInfo[] cloudInfos = new ABInfo[] { };
+        //ABInfo[] cloudInfos = new ABInfo[] { };
+        JsonAssets[] cloudInfos = new JsonAssets[] { };
         List<string> cloudList = new List<string>();
         WWW www = new WWW(cloudPath);
         while (!www.isDone) { }
@@ -47,7 +48,7 @@ public class UI_CheckUpdate : UIWidget
         }
         if (www.isDone)
         {
-            cloudInfos = JsonMapper.ToObject<ABInfo[]>(www.text);
+            cloudInfos = JsonMapper.ToObject<JsonAssets[]>(www.text);
             www.Dispose();
             for (int i = 0; i < cloudInfos.Length; i++)
             {
@@ -79,7 +80,7 @@ public class UI_CheckUpdate : UIWidget
 
         // 3. 比较差异，创建下载列表(downloadList)
         var diff = cloudList.Except(localList).ToArray();
-        downloadList = new List<ABInfo>();
+        downloadList = new List<JsonAssets>();
         for (int i = 0; i < diff.Length; i++)
         {
             var ab = cloudInfos.Where(x => x.md5 == diff[i]).ToList()[0];
@@ -107,7 +108,7 @@ public class UI_CheckUpdate : UIWidget
         Debug.Log("<color=green>更新完成</color>");
 
         // 6. 确保更新完成，初始化ab管理器
-        AssetBundleManager.Init();
+        //AssetBundleManager.Init();
 
         // 7. 显示下一级界面
         action();

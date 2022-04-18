@@ -57,189 +57,118 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ThirdParty\Google.Protobuf\FrameworkPortability.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSDeleteBreakpoint.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\09_Reflection\ReflectionDemo.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\09_Reflection\ReflectionDemo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\RepeatedFieldAccessor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\ValueTypeBindingGenerator.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Collections\ReadOnlyDictionary.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\AppDomain.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\WrappersPartial.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\CodedOutputStream.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\DescriptorBase.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\FieldMaskPartial.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\JsonParser.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\Method\IMethod.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\JsonData.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\JsonData.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\OriginalNameAttribute.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\OneofAccessor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\InvocationContext.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\04_Inheritance\InheritanceAdapter.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\04_Inheritance\InheritanceAdapter.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\07_Coroutine\CoroutineDemo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Collections\MapField.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\07_Coroutine\CoroutineDemo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Other\ThreadSafeDictionary.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\SingleFieldAccessor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\CodedOutputStream.ComputeSize.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCThreadStarted.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\Lexer.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\BreakPointContext.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\11_ValueTypeBinding\Vector2Binder.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\DelegateAdapter.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\MethodBindingGenerator.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\Lexer.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\11_ValueTypeBinding\Vector2Binder.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\ICustomDiagnosticMessage.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Other\UncheckedList.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimeConstructorInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\StackFrameInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\12_Proto\Proto3.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Stack\StackFrame.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Editor\MonoBehaviourAdapterEditor.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\13_Proto\Proto3.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\08_MonoBehaviour\Editor\MonoBehaviourAdapterEditor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\DescriptorPool.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\IDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\TypeSystem\IType.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\InvalidProtocolBufferException.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\08_MonoBehaviour\MonoBehaviourAdapter.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSEnumChildren.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\08_MonoBehaviour\MonoBehaviourAdapter.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\12_Performance\Performance.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\ProtoPreconditions.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Struct.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\BreakpointInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimePropertyInfo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\LimitedInputStream.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\JsonToken.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\InvalidJsonException.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\JsonMapper.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\JsonMapper.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\MessageDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\06_CLRBinding\CLRBindingDemo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCModuleLoaded.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\06_CLRBinding\CLRBindingDemo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\ServiceDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\01_HelloWorld\HelloWorld.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\01_HelloWorld\HelloWorld.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Collections\RepeatedField.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\MessageExtensions.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\11_ValueTypeBinding\QuaternionBinder.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\ILTypeInstance.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCEnumChildrenResult.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\12_Proto\Adapter_Protobuf.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\11_ValueTypeBinding\QuaternionBinder.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\13_Proto\Adapter_Protobuf.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\OneofDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCBindBreakpointResult.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WireFormat.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\EnumValueDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\ILRuntimeException.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Type.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Other\NeedAdaptorAttribute.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\MapFieldAccessor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\FileDescriptor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\DescriptorValidationException.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\12_Proto\TheMsg.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\DebugSocket.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\11_ValueTypeBinding\Vector3Binder.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\Method\CLRMethod.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\JsonMockWrapper.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Extensions.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\13_Proto\TheMsg.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\11_ValueTypeBinding\Vector3Binder.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\JsonMockWrapper.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Editor\ILRuntimeCrossBinding.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Any.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCAttachResult.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\DebugMessageType.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\TimeExtensions.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Wrappers.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\JsonFormatter.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCResolveVariableResult.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Duration.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCStepComplete.cs" />
-    <Compile Include="Assets\ThirdParty\Google.Protobuf\ByteArray.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\ValuePartial.cs" />
+    <Compile Include="Assets\ThirdParty\Google.Protobuf\ByteArray.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Empty.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\EnumDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimeParameterInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\Method\ExceptionHandler.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\08_MonoBehaviour\MonoBehaviourDemo.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\08_MonoBehaviour\MonoBehaviourDemo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\FieldDescriptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\ILContext.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\10_LitJson\LitJsonDemo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\Method\ILMethod.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\TypeSystem\ILGenericParameterType.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\10_LitJson\LitJsonDemo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Compatibility\TypeExtensions.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\CLRRedirections.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\AnyPartial.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSResolveIndexer.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\JsonTokenizer.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Api.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\TypeSystem\ILType.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\VariableInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimeFieldInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSExecute.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\CrossBindingAdaptor.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\ParserToken.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\CommonBindingGenerator.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\ParserToken.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\FieldAccessorBase.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\JsonWriter.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\TypeRegistry.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSResolveVariable.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\Extensions.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\GeneratedClrTypeInfo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\IMessage.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\07_Coroutine\CoroutineAdapter.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\07_Coroutine\CoroutineAdapter.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\IDeepCloneable.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\TypeSystem\CLRType.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\ILIntepreter.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\SourceContext.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\03_Delegate\DelegateDemo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\ValueTypeBinder.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\BindingGeneratorExtensions.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\11_ValueTypeBinding\ValueTypeBindingDemo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\OpCodes\OpCode.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Stack\StackObject.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Enviorment\DelegateManager.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\02_Invocation\Invocation.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Other\DelegateExportAttribute.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\03_Delegate\DelegateDemo.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\11_ValueTypeBinding\ValueTypeBindingDemo.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\02_Invocation\Invocation.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\ReflectionUtil.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Editor\ILRuntimeCLRBinding.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Editor\ILRuntimeCLRBinding.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Compatibility\PropertyInfoExtensions.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSStep.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\IJsonWrapper.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimeWrapperType.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\IJsonWrapper.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Editor\ILRuntimeMenu.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\PackageDescriptor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\Descriptor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\DurationPartial.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\DebuggerServer\DebuggerServer.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\TimestampPartial.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\SCBreakpointHit.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\MessageParser.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\ByteString.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Stack\RuntimeStack.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\IFieldAccessor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\DescriptorUtil.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\12_Proto\ProtoHelper.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\StepTypes.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\13_Proto\ProtoHelper.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimeMethodInfo.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\MethodDescriptor.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\FieldType.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\JsonException.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\CLR\Utils\Extensions.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\JsonException.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\FieldMask.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\ConstructorBindingGenerator.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\Protocol\CSBindBreakpoint.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Adaptors\CLRCrossBindingAdaptors.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\BindingCodeGenerator.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\05_CLRRedirection\CLRRedirectionDemo.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\LitJson\JsonReader.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\05_CLRRedirection\CLRRedirectionDemo.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\LitJson\JsonReader.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\FieldCodec.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\CLRBinding\FieldBindingGenerator.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Debugger\DebugService.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Demo\Scripts\Examples\04_Inheritance\Inheritance.cs" />
+    <Compile Include="Assets\ThirdParty\ILRuntime\2.0.2\Demo\Scripts\Examples\04_Inheritance\Inheritance.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\CodedInputStream.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Reflection\ILRuntimeType.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\WellKnownTypes\Timestamp.cs" />
     <Compile Include="Assets\ThirdParty\Google.Protobuf\Reflection\PartialClasses.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Other\ByReferenceKeyComparer.cs" />
-    <Compile Include="Assets\ThirdParty\ILRuntime\Packages\Runtime\Intepreter\OpCodes\OpCodeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\ThirdParty\Demigiant\readme_DOTweenPro.txt" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween.XML" />
-    <None Include="Assets\ThirdParty\Unity.ThirdParty.asmdef" />
-    <None Include="Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\Editor\DOTweenEditor.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DemiLib\DemiLib.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.dll" />
@@ -247,10 +176,10 @@
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween46.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DemiLib\DemiLib.xml" />
-    <None Include="Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll" />
     <None Include="Assets\ThirdParty\Demigiant\DemiLib\Editor\DemiEditor.XML" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\ThirdParty\Unity.ThirdParty.asmdef" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween50.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +206,9 @@
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AutoStreamingModule">
+      <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AutoStreamingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
@@ -488,23 +420,23 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ILRuntime.Mono.Cecil.Pdb">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\ThirdParty\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime.Mono.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.ourpalm.ilruntime@2.0.2\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime.Mono.Cecil">
+      <HintPath>Library\PackageCache\com.ourpalm.ilruntime@2.0.2\Plugins\ILRuntime.Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime.Mono.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.ourpalm.ilruntime@2.0.2\Plugins\ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\ThirdParty\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
-    <Reference Include="ILRuntim.Mono.Cecil">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntim.Mono.Cecil.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\ThirdParty\Demigiant\DemiLib\DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ILRuntime.Mono.Cecil.Mdb">
-      <HintPath>Assets\ThirdParty\ILRuntime\Packages\Plugins\ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
       <HintPath>Assets\ThirdParty\Demigiant\DemiLib\Editor\DemiEditor.dll</HintPath>
@@ -865,6 +797,9 @@
     </Reference>
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>D:\Program Files\2020.3.30f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime">
+      <HintPath>Library\ScriptAssemblies\ILRuntime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

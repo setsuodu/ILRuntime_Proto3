@@ -13,11 +13,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Init();
-    }
-
-    void Init()
-    {
         if (!Initialized)
         {
             Instance = this;
@@ -26,6 +21,8 @@ public class GameManager : MonoBehaviour
             // 系统设置
             Time.timeScale = 1.0f;
             Time.fixedDeltaTime = 0.002f;
+            Screen.fullScreen = false;
+            //Screen.SetResolution(540, 960);
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             Application.targetFrameRate = 30;
             QualitySettings.vSyncCount = 0;
@@ -34,7 +31,7 @@ public class GameManager : MonoBehaviour
             transform.Find("ILGlobal").gameObject.AddComponent<Client.ILGlobal>();
 
             // 加载配置
-            StartCoroutine(LoadConfig());
+            StartCoroutine(GetConfig());
         }
         else
         {
@@ -43,7 +40,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 读取游戏配置（ab包下载地址，游戏版本号，公告等）
-    IEnumerator LoadConfig()
+    IEnumerator GetConfig()
     {
         UnityWebRequest request = new UnityWebRequest
         {
@@ -52,33 +49,15 @@ public class GameManager : MonoBehaviour
         };
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
-        Debug.Log($"Status code: {request.responseCode}");
         if (request.responseCode != 200)
         {
             Debug.LogError($"error code = {request.responseCode}");
             yield break;
         }
-        else
-        {
-            string text = request.downloadHandler.text;
-            Debug.Log(text);
-            gameConfig = JsonMapper.ToObject<GameConfig>(text);
-            request.Dispose();
-        }
-
-        /*
-        WWW www = new WWW(ConstValue.CONFIG_URL);
-        while (!www.isDone) yield return null;
-        yield return www;
-        if (!string.IsNullOrEmpty(www.error))
-        {
-            Debug.LogError(www.error);
-            yield break;
-        }
-        Debug.Log(www.text);
-        gameConfig = JsonMapper.ToObject<GameConfig>(www.text);
-        www.Dispose();
-        */
+        string text = request.downloadHandler.text;
+        //Debug.Log($"success: {text}");
+        gameConfig = JsonMapper.ToObject<GameConfig>(text);
+        request.Dispose();
 
         yield return CheckUpdateAsync(OnInited);
     }

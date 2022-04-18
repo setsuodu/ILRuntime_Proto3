@@ -22,8 +22,8 @@ namespace HotFix {
     static TheMsgReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxUaGVNc2cucHJvdG8SBkhvdEZpeCInCgZUaGVNc2cSDAoEbmFtZRgBIAEo",
-            "CRIPCgdjb250ZW50GAIgASgJYgZwcm90bzM="));
+            "CgxUaGVNc2cucHJvdG8iJwoGVGhlTXNnEgwKBG5hbWUYASABKAkSDwoHY29u",
+            "dGVudBgCIAEoCUIJqgIGSG90Rml4YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

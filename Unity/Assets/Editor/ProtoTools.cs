@@ -27,10 +27,13 @@ public partial class BundleTools : Editor
     protected static void RunBatch(string batFileName)
     {
         DirectoryInfo unityFolder = new DirectoryInfo("Assets");
-        string batPath = $@"{unityFolder.Parent.Parent}\{batFileName}";
-        Debug.Log(batPath);
+        string projRoot = unityFolder.Parent.Parent.ToString();
+        //Debug.Log(proRoot);
+        string filePath = $@"{projRoot}\{batFileName}";
+        Debug.Log(filePath);
         Process proc = new Process();
-        proc.StartInfo.FileName = batPath; //初始化可执行文件名
+        proc.StartInfo.WorkingDirectory = projRoot; //在文件所在位置执行
+        proc.StartInfo.FileName = filePath; //初始化可执行文件名
         proc.Start();
     }
 
@@ -68,11 +71,11 @@ public partial class BundleTools : Editor
     private static void ClearTmpFolders()
     {
         // 两个需要清理的目录
-        // ./Assets/StreamingAssets/AssetBundle
+        // ./Assets/StreamingAssets/Bundles
         // ./StandaloneWindows64
         string[] pathArray = new string[]
         {
-            Path.Combine(Application.streamingAssetsPath, "AssetBundle"),
+            Path.Combine(Application.streamingAssetsPath, "Bundles"),
             Path.Combine(GetUnityDir(), "StandaloneWindows64"),
         };
         for (int i = 0; i < pathArray.Length; i++)
@@ -99,15 +102,9 @@ public partial class BundleTools : Editor
     }
 
     [MenuItem("Tools/Shader/重置IncludedShaders")]
-    private static void ResetIncludedShaders()
-    {
-
-    }
+    private static void ResetIncludedShaders() { }
     [MenuItem("Tools/Shader/设置IncludedShaders")]
-    private static void SetIncludedShaders()
-    {
-
-    }
+    private static void SetIncludedShaders() { }
 
     #endregion
 
@@ -128,7 +125,7 @@ public partial class BundleTools : Editor
             return;
         }
 
-        string bytesPath = Path.Combine(Application.dataPath, "AssetBundle/Config/HotFix.dll.bytes");
+        string bytesPath = Path.Combine(Application.dataPath, "Bundles/Configs/HotFix.dll.bytes");
         if (File.Exists(bytesPath))
         {
             File.Delete(bytesPath);
@@ -141,11 +138,11 @@ public partial class BundleTools : Editor
         Debug.Log("移动完成");
     }
 
-    [MenuItem("Assets/Open Hotfix Project", false, 1000)]
-    private static void OpenHotfixProject()
+    [MenuItem("Assets/Open Server Project", false, 1000)]
+    private static void OpenServerProject()
     {
         DirectoryInfo unityFolder = new DirectoryInfo("Assets");
-        string batPath = $@"{unityFolder.Parent.Parent}\HotFix\HotFix_Project.sln";
+        string batPath = $@"{unityFolder.Parent.Parent}\NetCoreServer\NetCoreApp.sln";
         //Debug.Log(batPath);
         Process proc = new Process
         {

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HotFix
 {
@@ -13,6 +12,9 @@ namespace HotFix
             msg.Name = "lala";
             msg.Content = "haha";
             Debug.Log($"Name={msg.Name}，Content={msg.Content}");
+
+            byte[] body = ProtobufferTool.Serialize(msg);
+            Debug.Log($"body={body.Length}");
         }
     }
 }

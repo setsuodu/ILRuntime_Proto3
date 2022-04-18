@@ -1,0 +1,3 @@
+[submodule "NetCoreServer"]
+	path = NetCoreServer
+	url = https://github.com/setsuodu/NetCoreServer.git

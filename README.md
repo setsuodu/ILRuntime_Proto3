@@ -6,8 +6,8 @@ Unity3D demo project for ILRuntime
 ### 版本
 - Unity2020.3.30f1c1
 - VS2019 Professional
-- Proto 3
-- ILRuntime 1.4
+- Proto 3.0.0-win32
+- ILRuntime 2.0.2
 - wampserver 3.2.6
 
 ### 环境配置
@@ -21,7 +21,12 @@ Unity3D demo project for ILRuntime
 .\download\present.json
 ```
 
+- 5. 热更工程配置：
+   1. 引用``Unity\Library\ScriptAssemblies``中的Assembly Definition。
+   2. 引用中设置不输出的dll。
+
 ### 使用说明
+
 - 1. HotFix工程已嵌入到Untiy工程中，手动编译HotFix解决方案，生成 ``HotFix.dll ``到 ``StreamingAssets`` 目录下。
 - 2. 使用工具栏 ``Tools/打包AB/MoveDLL`` 将 HotFix.dll 热更新程序集拷贝到 AssetBundle 资源打包目录中。
 - 3. 再打包AB，将热更新代码座位AB打包。

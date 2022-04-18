@@ -4,8 +4,12 @@ obj/
 *.user
 .vs
 Library/
+Logs/
 Temp/
-
-/Unity/StandaloneWindows64
-/Unity/Assets/StreamingAssets
-/Unity/Logs/
+UserSettings/
+Output/
+ILRuntimeDemo/Packages/packages-lock.json
+ILRuntimeDemo/.vsconfig
+/out
+ILRuntimeDemo/*.csproj
+StreamingAssets/

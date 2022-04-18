@@ -1,8 +1,7 @@
 ﻿//适配文件放到主程序中
 using System;
-using System.IO;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.Runtime.Intepreter;
 using ILRuntime.CLR.Method;
