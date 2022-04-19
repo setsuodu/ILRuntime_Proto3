@@ -75,7 +75,7 @@
     <Compile Include="Lobby\Shared\GamePackets.cs" />
     <Compile Include="Manager\AudioManager.cs" />
     <Compile Include="Message\Login.cs" />
-    <Compile Include="Proto3.cs" />
+    <Compile Include="Demo\Proto3.cs" />
     <Compile Include="Google.Protobuf\ByteArray.cs" />
     <Compile Include="Google.Protobuf\ByteString.cs" />
     <Compile Include="Google.Protobuf\CodedInputStream.cs" />
@@ -160,7 +160,7 @@
     <Compile Include="Demo\InstanceClass.cs" />
     <Compile Include="Message\TheMsg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProtobufferTool.cs" />
+    <Compile Include="Utils\ProtobufferTool.cs" />
     <Compile Include="TCP\Buffer.cs" />
     <Compile Include="TCP\ChatClient.cs" />
     <Compile Include="TCP\TcpClient.cs" />
