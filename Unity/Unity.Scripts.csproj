@@ -71,7 +71,6 @@
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ThreadDownload.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\EventManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ConstValue.cs" />
     <Compile Include="Assets\Scripts\Adapter\Adapt_IMessage.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILGlobal.cs" />

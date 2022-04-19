@@ -147,7 +147,7 @@
     <Compile Include="Google.Protobuf\WellKnownTypes\Wrappers.cs" />
     <Compile Include="Google.Protobuf\WellKnownTypes\WrappersPartial.cs" />
     <Compile Include="Google.Protobuf\WireFormat.cs" />
-    <Compile Include="Manager\MusicManager.cs" />
+    <Compile Include="Manager\EventManager.cs" />
     <Compile Include="Manager\UIManager.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Demo\TestValueType.cs" />

@@ -74,7 +74,7 @@ namespace Client
             appdomain.Invoke("HotFix.Proto3", "_TheMsg", null, null);
             */
 
-            IL_InitAdapter("MusicManager");
+            //IL_InitAdapter("EventManager");
             IL_InitAdapter("UIManager");
 
             // IL热更加载UI
