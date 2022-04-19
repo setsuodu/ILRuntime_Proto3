@@ -30,8 +30,13 @@ public class GameManager : MonoBehaviour
             // 绑定组件
             transform.Find("ILGlobal").gameObject.AddComponent<Client.ILGlobal>();
 
-            // 加载配置
+#if UNITY_EDITOR && !USE_ASSETBUNDLE
+            // 不检查更新
+            OnInited();
+#else
+            // 加载配置（需要启动资源服务器）
             StartCoroutine(GetConfig());
+#endif
         }
         else
         {
