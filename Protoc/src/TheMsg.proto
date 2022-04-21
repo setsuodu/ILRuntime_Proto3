@@ -6,3 +6,8 @@ message TheMsg {
   string name = 1;
   string content = 2;
 }
+
+message TheMsgList {
+  //repeated string content = 1;
+  string contentJson = 1;
+}

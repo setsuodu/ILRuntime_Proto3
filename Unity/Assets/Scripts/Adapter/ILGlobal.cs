@@ -74,8 +74,8 @@ namespace Client
             appdomain.Invoke("HotFix.Proto3", "_TheMsg", null, null);
             */
 
-            //IL_InitAdapter("EventManager");
             IL_InitAdapter("UIManager");
+            IL_InitAdapter("EventManager");
 
             // IL热更加载UI
             appdomain.Invoke("HotFix.Main", "Init", gameObject, null); //static方法

@@ -67,20 +67,19 @@ namespace HotFix
         }
 
         // Manager注册在这里
-        //public static void EventManagerAdapter(GameObject go)
-        //{
-        //    //go.AddComponent<EventManager>(); //不是基于MonoBehavior的实体
-        //}
         public static void UIManagerAdapter(GameObject go)
         {
             go.AddComponent<UIManager>();
+        }
+        public static void EventManagerAdapter(GameObject go)
+        {
+            go.AddComponent<EventManager>();
         }
 
         #endregion
 
         public static void Init()
         {
-            //UIManager.Get().CreatePanel("UI_Login");
             UIManager.Get().Push<UI_Login>();
         }
     }
