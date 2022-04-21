@@ -49,11 +49,11 @@ namespace HotFix
 
             switch (type)
             {
+                case PacketType.Connected:
+                    break;
                 case PacketType.C2S_LoginReq:
                     TheMsg msg = ProtobufferTool.Deserialize<TheMsg>(body);
                     Debug.Log($"[{type}] Name={msg.Name}, Content={msg.Content}");
-                    break;
-                case PacketType.C2S_MatchRequest:
                     break;
             }
             //TODO: 通过委托分发出去

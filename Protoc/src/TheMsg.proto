@@ -11,3 +11,11 @@ message TheMsgList {
   //repeated string content = 1;
   string contentJson = 1;
 }
+
+message MsgInfo
+{
+  int32 room_id 	= 1; //房间Id
+  string room_name 	= 2; //房间名
+  int32 cur_num 	= 3; //当前玩家数
+  int32 limit_num 	= 4; //玩家总数
+}

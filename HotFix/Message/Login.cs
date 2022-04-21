@@ -22,22 +22,24 @@ namespace HotFix {
     static LoginReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgtMb2dpbi5wcm90byIrCgVMb2dpbhIQCgh1c2VybmFtZRgBIAEoCRIQCghw",
-            "YXNzd29yZBgCIAEoCUIJqgIGSG90Rml4YgZwcm90bzM="));
+            "CgtMb2dpbi5wcm90byIvCglDMlNfTG9naW4SEAoIdXNlcm5hbWUYASABKAkS",
+            "EAoIcGFzc3dvcmQYAiABKAkiKwoJUzJDX0xvZ2luEgwKBGNvZGUYASABKAUS",
+            "EAoIbmlja25hbWUYAiABKAlCCaoCBkhvdEZpeGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::HotFix.Login), global::HotFix.Login.Parser, new[]{ "Username", "Password" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::HotFix.C2S_Login), global::HotFix.C2S_Login.Parser, new[]{ "Username", "Password" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HotFix.S2C_Login), global::HotFix.S2C_Login.Parser, new[]{ "Code", "Nickname" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class Login : pb::IMessage<Login> {
-    private static readonly pb::MessageParser<Login> _parser = new pb::MessageParser<Login>(() => new Login());
+  public sealed partial class C2S_Login : pb::IMessage<C2S_Login> {
+    private static readonly pb::MessageParser<C2S_Login> _parser = new pb::MessageParser<C2S_Login>(() => new C2S_Login());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Login> Parser { get { return _parser; } }
+    public static pb::MessageParser<C2S_Login> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -50,21 +52,21 @@ namespace HotFix {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Login() {
+    public C2S_Login() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Login(Login other) : this() {
+    public C2S_Login(C2S_Login other) : this() {
       username_ = other.username_;
       password_ = other.password_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Login Clone() {
-      return new Login(this);
+    public C2S_Login Clone() {
+      return new C2S_Login(this);
     }
 
     /// <summary>Field number for the "username" field.</summary>
@@ -91,11 +93,11 @@ namespace HotFix {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Login);
+      return Equals(other as C2S_Login);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Login other) {
+    public bool Equals(C2S_Login other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -145,7 +147,7 @@ namespace HotFix {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Login other) {
+    public void MergeFrom(C2S_Login other) {
       if (other == null) {
         return;
       }
@@ -171,6 +173,151 @@ namespace HotFix {
           }
           case 18: {
             Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class S2C_Login : pb::IMessage<S2C_Login> {
+    private static readonly pb::MessageParser<S2C_Login> _parser = new pb::MessageParser<S2C_Login>(() => new S2C_Login());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<S2C_Login> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::HotFix.LoginReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public S2C_Login() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public S2C_Login(S2C_Login other) : this() {
+      code_ = other.code_;
+      nickname_ = other.nickname_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public S2C_Login Clone() {
+      return new S2C_Login(this);
+    }
+
+    /// <summary>Field number for the "code" field.</summary>
+    public const int CodeFieldNumber = 1;
+    private int code_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Code {
+      get { return code_; }
+      set {
+        code_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "nickname" field.</summary>
+    public const int NicknameFieldNumber = 2;
+    private string nickname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Nickname {
+      get { return nickname_; }
+      set {
+        nickname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as S2C_Login);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(S2C_Login other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Code != other.Code) return false;
+      if (Nickname != other.Nickname) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Code != 0) hash ^= Code.GetHashCode();
+      if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Code != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Code);
+      }
+      if (Nickname.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Nickname);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Code != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Code);
+      }
+      if (Nickname.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(S2C_Login other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Code != 0) {
+        Code = other.Code;
+      }
+      if (other.Nickname.Length != 0) {
+        Nickname = other.Nickname;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Code = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Nickname = input.ReadString();
             break;
           }
         }

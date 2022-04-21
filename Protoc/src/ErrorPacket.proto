@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option csharp_namespace = "HotFix";
+
+message ErrorPacket {
+  int32 code = 1;
+  string message = 2;
+}

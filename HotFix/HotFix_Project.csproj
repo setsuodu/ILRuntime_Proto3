@@ -74,6 +74,9 @@
     <Compile Include="Lobby\Shared\BaseRoom.cs" />
     <Compile Include="Lobby\Shared\GamePackets.cs" />
     <Compile Include="Manager\AudioManager.cs" />
+    <Compile Include="Message\CreateRoom.cs" />
+    <Compile Include="Message\Empty.cs" />
+    <Compile Include="Message\ErrorPacket.cs" />
     <Compile Include="Message\Login.cs" />
     <Compile Include="Demo\Proto3.cs" />
     <Compile Include="Google.Protobuf\ByteArray.cs" />
