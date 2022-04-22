@@ -44,28 +44,28 @@ namespace Client
             string filePath = $"Assets/Bundles/{fileName}.prefab";
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(filePath);
 #else
-        string filePath = GetFilePath($"{fileName}.unity3d");
+            string filePath = GetFilePath($"{fileName}.unity3d");
 
-        // 先读取依赖
-        List<AssetBundle> dependBundles = new List<AssetBundle>();
-        string[] depends = GetDepends($"{fileName}.unity3d");
-        for (int i = 0; i < depends.Length; i++)
-        {
-            string dependPath = GetFilePath(depends[i]);
-            AssetBundle dependAsset = AssetBundle.LoadFromFile(dependPath.ToLower());
-            dependBundles.Add(dependAsset);
-        }
+            // 先读取依赖
+            List<AssetBundle> dependBundles = new List<AssetBundle>();
+            string[] depends = GetDepends($"{fileName}.unity3d");
+            for (int i = 0; i < depends.Length; i++)
+            {
+                string dependPath = GetFilePath(depends[i]);
+                AssetBundle dependAsset = AssetBundle.LoadFromFile(dependPath.ToLower());
+                dependBundles.Add(dependAsset);
+            }
 
-        var asset = AssetBundle.LoadFromFile(filePath.ToLower());
-        GameObject prefab = asset.LoadAllAssets()[0] as GameObject;
-        asset.Unload(false);
+            var asset = AssetBundle.LoadFromFile(filePath.ToLower());
+            GameObject prefab = asset.LoadAllAssets()[0] as GameObject;
+            asset.Unload(false);
 
-        // 再卸载依赖
-        for (int i = dependBundles.Count - 1; i >= 0; i--)
-        {
-            dependBundles[i].Unload(false);
-            dependBundles.RemoveAt(i);
-        }
+            // 再卸载依赖
+            for (int i = dependBundles.Count - 1; i >= 0; i--)
+            {
+                dependBundles[i].Unload(false);
+                dependBundles.RemoveAt(i);
+            }
 #endif
             return prefab;
         }
@@ -75,16 +75,16 @@ namespace Client
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
             var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{BUNDLES_FOLDER}/{fileName}.mp3");
 #else
-        string filePath0 = $"{BUNDLES_FOLDER}/{fileName}.unity3d";
-        Debug.Log($"filePath0={filePath0}"); //~~Assets/Bundles/Audios/round1.unity3d
+            //string filePath0 = $"{BUNDLES_FOLDER}/{fileName}.unity3d";
+            //Debug.Log($"filePath0={filePath0}"); //~~Assets/Bundles/Audios/round1.unity3d
 
-        string filePath = GetFilePath($"{fileName}.unity3d");
-        Debug.Log($"filePath={filePath}");
+            string filePath = GetFilePath($"{fileName}.unity3d");
+            Debug.Log($"filePath={filePath}");
 
-        AssetBundle asset = AssetBundle.LoadFromFile(filePath);
-        object config = asset.LoadAllAssets()[0];
-        asset.Unload(false);
-        var clip = (AudioClip)config;
+            AssetBundle asset = AssetBundle.LoadFromFile(filePath);
+            object config = asset.LoadAllAssets()[0];
+            asset.Unload(false);
+            var clip = (AudioClip)config;
 #endif
             return clip;
         }
@@ -95,10 +95,10 @@ namespace Client
             string filePath = $"Assets/Bundles/{configName}.asset";
             object config = AssetDatabase.LoadAssetAtPath<Object>(filePath);
 #else
-        string filePath = GetFilePath($"{configName}.unity3d");
-        AssetBundle asset = AssetBundle.LoadFromFile(filePath);
-        object config = asset.LoadAllAssets()[0];
-        asset.Unload(false);
+            string filePath = GetFilePath($"{configName}.unity3d");
+            AssetBundle asset = AssetBundle.LoadFromFile(filePath);
+            object config = asset.LoadAllAssets()[0];
+            asset.Unload(false);
 #endif
             return config;
         }
@@ -109,9 +109,11 @@ namespace Client
             string filePath = $"Assets/Bundles/Configs/Hotfix.dll.bytes";
             TextAsset textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
 #else
-        AssetBundle asset = AssetBundle.LoadFromFile("configs/hotfix.unity3d");
-        TextAsset textAsset = asset.LoadAllAssets()[0] as TextAsset;
-        asset.Unload(false);
+            string fileName = "configs/hotfix";
+            string filePath = GetFilePath($"{fileName}.unity3d"); //文件名是加密子串
+            AssetBundle asset = AssetBundle.LoadFromFile(filePath);
+            TextAsset textAsset = asset.LoadAllAssets()[0] as TextAsset;
+            asset.Unload(false);
 #endif
             return textAsset.bytes;
         }
@@ -123,10 +125,10 @@ namespace Client
             string filePath = $"Assets/Bundles/{configName}.png";
             var assets = AssetDatabase.LoadAllAssetsAtPath(filePath);
 #else
-        string filePath = GetFilePath($"{configName}.unity3d");
-        AssetBundle asset = AssetBundle.LoadFromFile(filePath);
-        var assets = asset.LoadAllAssets();
-        asset.Unload(false);
+            string filePath = GetFilePath($"{configName}.unity3d");
+            AssetBundle asset = AssetBundle.LoadFromFile(filePath);
+            var assets = asset.LoadAllAssets();
+            asset.Unload(false);
 #endif
             int count = assets.Count();
             //Debug.Log($"子物体：{count}个");

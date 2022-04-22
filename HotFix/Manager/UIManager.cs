@@ -28,20 +28,6 @@ namespace HotFix
         public void GetActivePanel() { }
         public void GetPanel(string className) { }
 
-        public void CreatePanel(string className)
-        {
-            Debug.Log($"[Hotfix] CreatePanel={className}");
-
-            string fileName = $"ui/{className.ToLower()}";
-            GameObject prefab = Client.ResManager.LoadPrefab(fileName);
-            GameObject go = Instantiate(prefab, Parent);
-            go.name = className;
-            //go.layer = LayerMask.NameToLayer("UI");
-
-            //var script = go.GetComponent<Client.ILWidget>();
-            //stack.Add(script);
-            //Debug.Log($"Parent={Parent.name}");
-        }
         public T Push<T>() where T : UIBase
         {
             string scriptName = typeof(T).ToString().Split('.')[1];
@@ -76,17 +62,6 @@ namespace HotFix
             }
         }
 
-        public void ClosePanel(string className)
-        {
-            Transform panelObj = Parent.Find(className);
-            if (panelObj == null) return;
-            Destroy(panelObj.gameObject);
-        }
-        public void ClosePanel(UIBase widget)
-        {
-            Debug.Log("ClosePanel...");
-            Destroy(widget.gameObject);
-        }
         public void Pop(UIBase ui)
         {
             string scriptName = ui.name;
@@ -109,9 +84,6 @@ namespace HotFix
                 Pop(ui.Value);
             }
         }
-
-        public void CloseAll(string className) { }
-        public void CloseAllWithout(string className) { }
 
         #region 测试
 
