@@ -605,7 +605,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: 
+    1: USE_ASSETBUNDLE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

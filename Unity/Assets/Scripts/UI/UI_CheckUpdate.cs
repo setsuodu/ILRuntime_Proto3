@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using LitJson;
 
-public class UI_CheckUpdate : UIBase
+public class UI_CheckUpdate : MonoBehaviour
 {
     private static string cloudPath;
     private static string localPath;
@@ -107,12 +107,10 @@ public class UI_CheckUpdate : UIBase
         }
         Debug.Log("<color=green>更新完成</color>");
 
-        // 6. 确保更新完成，初始化ab管理器
-        //AssetBundleManager.Init();
-
-        // 7. 显示下一级界面
+        // 6. 显示下一级界面
         action();
-        PopUp();
+        //PopUp();
+        Destroy(this.gameObject);
     }
 
     #region 下载方法

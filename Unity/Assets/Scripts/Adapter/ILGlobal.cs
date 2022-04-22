@@ -50,14 +50,14 @@ namespace Client
             // 注册"空参空返回"型的委托
             appdomain.DelegateManager.RegisterMethodDelegate<ILTypeInstance>();
             appdomain.DelegateManager.RegisterDelegateConvertor<UnityAction>((act) => { return new UnityAction(() => { ((System.Action)act)(); }); });
-            appdomain.DelegateManager.RegisterFunctionDelegate<UIBase, System.Boolean>();
-            appdomain.DelegateManager.RegisterDelegateConvertor<System.Predicate<UIBase>>((act) =>
-            {
-                return new System.Predicate<UIBase>((obj) =>
-                {
-                    return ((System.Func<UIBase, System.Boolean>)act)(obj);
-                });
-            });
+            //appdomain.DelegateManager.RegisterFunctionDelegate<UIBase, System.Boolean>();
+            //appdomain.DelegateManager.RegisterDelegateConvertor<System.Predicate<UIBase>>((act) =>
+            //{
+            //    return new System.Predicate<UIBase>((obj) =>
+            //    {
+            //        return ((System.Func<UIBase, System.Boolean>)act)(obj);
+            //    });
+            //});
             appdomain.DelegateManager.RegisterMethodDelegate<System.Object, System.Net.Sockets.SocketAsyncEventArgs>();
             appdomain.DelegateManager.RegisterDelegateConvertor<System.EventHandler<System.Net.Sockets.SocketAsyncEventArgs>>((act) =>
             {
