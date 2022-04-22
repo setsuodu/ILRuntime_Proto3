@@ -70,11 +70,19 @@ public class FileHelper
 
     public static void WriteBytes(byte[] data)
     {
-        Debug.Log($"WriteBytes: data={data.Length}");
+        Debug.Log($"Write data length={data.Length}");
 
-        string fileName = "byte[]对比";
-        string root = Environment.CurrentDirectory;
-        string filePath = $"{root}/Assets/{fileName}.txt";
+        string fileName = "byte[]对比_Client";
+        //string root = Environment.CurrentDirectory;
+        //string filePath = $"{root}/Assets/{fileName}.txt";
+        string filePath = @$"C:\Users\Administrator\Desktop\ILRuntime_Proto3\{fileName}.txt";
         File.WriteAllBytes(filePath, data); //直接覆盖了
+        Debug.Log($"WriteBytes to: {filePath}");
+    }
+
+    public static byte[] ReadBytes(string path)
+    {
+        var data = File.ReadAllBytes(path);
+        return data;
     }
 }

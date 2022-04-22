@@ -40,11 +40,11 @@ public static class InnerProto2CS
         msgOpcode.Clear();
         Proto2CS("ET", "../Proto/InnerMessage.proto", serverMessagePath, "InnerOpcode", InnerMinOpcode);
         GenerateOpcode("ET", "InnerOpcode", serverMessagePath);
-
-        Proto2CS("ET", "../Proto/OuterMessage.proto", serverMessagePath, "OuterOpcode", OuterMinOpcode);
-        GenerateOpcode("ET", "OuterOpcode", serverMessagePath);
         */
-        //Proto2CS("ET", "../Protoc/TheMsg.proto", clientMessagePath, "TheMsgOpcode", OuterMinOpcode);
+
+        Proto2CS("ET", protoSrc, serverMessagePath, "OuterOpcode", OuterMinOpcode);
+        GenerateOpcode("ET", "OuterOpcode", serverMessagePath);
+
         Proto2CS("ET", protoSrc, clientMessagePath, "OuterOpcode", OuterMinOpcode);
         GenerateOpcode("ET", "OuterOpcode", clientMessagePath);
     }

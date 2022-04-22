@@ -62,17 +62,18 @@
     <Compile Include="Assets\Scripts\Configs\ABInfo.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Utils\FixShader.cs" />
+    <Compile Include="Assets\Scripts\Adapter\ILHelper.cs" />
     <Compile Include="Assets\Scripts\Utils\Md5Utils.cs" />
     <Compile Include="Assets\Scripts\UI\UI_CheckUpdate.cs" />
     <Compile Include="Assets\Scripts\Adapter\AdaptHelper.cs" />
     <Compile Include="Assets\Scripts\Managers\ResManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ThreadDownload.cs" />
+    <Compile Include="Assets\Scripts\FileHelper.cs" />
     <Compile Include="Assets\Scripts\Utils\ConstValue.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILGlobal.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Adapter\ProtobufAdapter.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILUIBase.cs" />
-    <Compile Include="Assets\Scripts\Adapter\ILHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Unity.Scripts.asmdef" />

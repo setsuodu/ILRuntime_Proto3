@@ -5,7 +5,7 @@ Unity3D demo project for ILRuntime
 
 ### 版本
 - Unity2020.3.30f1c1
-- VS2019 Professional
+- VS2019 Enterprise
 - Proto 3.0.0-win32 （已支持Repeated）
 - ILRuntime 2.0.2
 - wampserver 3.2.6
