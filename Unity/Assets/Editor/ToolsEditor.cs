@@ -22,7 +22,6 @@ public class ToolsEditor
 
 public static class InnerProto2CS
 {
-    private const string protoPath = ".";
     private static readonly char[] splitChars = { ' ', '\t' };
     private static readonly List<OpcodeInfo> msgOpcode = new List<OpcodeInfo>();
 
@@ -32,19 +31,17 @@ public static class InnerProto2CS
 
     public static void Proto2CS()
     {
-        string protoSrc = "../Protoc/OuterMessage.proto";
-        string clientMessagePath = "../HotFix/Message/";
-        string serverMessagePath = "../NetCoreServer/NetCoreApp/Message/";
+        string unityPath = System.Environment.CurrentDirectory;
+        string projPath = Directory.GetParent(unityPath).ToString();
+        string protoSrc = $"{projPath}/Protoc/OuterMessage.proto";
+        string clientMessagePath = $"{projPath}/HotFix/Message/";
+        string serverMessagePath = $"{projPath}/NetCoreServer/NetCoreApp/Message/";
 
-        /* 输出到服务器
-        msgOpcode.Clear();
-        Proto2CS("ET", "../Proto/InnerMessage.proto", serverMessagePath, "InnerOpcode", InnerMinOpcode);
-        GenerateOpcode("ET", "InnerOpcode", serverMessagePath);
-        */
-
+        // 输出到服务器
         Proto2CS("ET", protoSrc, serverMessagePath, "OuterOpcode", OuterMinOpcode);
         GenerateOpcode("ET", "OuterOpcode", serverMessagePath);
 
+        // 输出到客户端
         Proto2CS("ET", protoSrc, clientMessagePath, "OuterOpcode", OuterMinOpcode);
         GenerateOpcode("ET", "OuterOpcode", clientMessagePath);
     }
@@ -57,14 +54,10 @@ public static class InnerProto2CS
         }
 
         msgOpcode.Clear();
-        string proto = Path.Combine(protoPath, protoName);
-        Debug.Log($"protoPath={protoPath}");
-        Debug.Log($"protoName={protoName}");
-        Debug.Log($"proto={proto}");
-        string csPath = Path.Combine(outputPath, Path.GetFileNameWithoutExtension(proto) + ".cs");
+        string csPath = Path.Combine(outputPath, Path.GetFileNameWithoutExtension(protoName) + ".cs");
         Debug.Log($"csPath={csPath}");
 
-        string s = File.ReadAllText(proto);
+        string s = File.ReadAllText(protoName);
 
         StringBuilder sb = new StringBuilder();
         sb.Append("using ET;\n");

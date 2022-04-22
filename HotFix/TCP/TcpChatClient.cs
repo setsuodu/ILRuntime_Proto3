@@ -38,40 +38,11 @@ namespace HotFix
 
         protected override void OnReceived(byte[] buffer, long offset, long size)
         {
-            Debug.Log($"OnReceived buffer={buffer.Length}, offset={offset}, size={size}");
-            try
-            {
-                MemoryStream stream = new MemoryStream(buffer, 0, buffer.Length);
-                var obj = ProtobufHelper.FromStream(typeof(TheMsgList), stream) as TheMsgList;
-                Debug.Log($"反序列化: obj={obj.Content[1]}");
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"error: {e.ToString()}");
-            }
-            return;
+            //Debug.Log($"Client.OnReceived length={buffer.Length}, offset={offset}, size={size}");
 
-            //string message = Encoding.UTF8.GetString(buffer, (int)offset, (int)size);
-            //Debug.Log($"S2C: {message}({size})");
-
-            // 解析msgId
-            byte msgId = buffer[0];
-            byte[] body = new byte[buffer.Length - 1];
-            Array.Copy(buffer, 1, body, 0, buffer.Length - 1);
-
-            PacketType type = (PacketType)msgId;
-            Debug.Log($"msgId={msgId}");
-
-            switch (type)
-            {
-                case PacketType.Connected:
-                    break;
-                case PacketType.C2S_LoginReq:
-                    //TheMsg msg = ProtobufferTool.Deserialize<TheMsg>(body);
-                    //Debug.Log($"[{type}] Name={msg.Name}, Content={msg.Content}");
-                    break;
-            }
-            //TODO: 通过委托分发出去
+            // 这里是异步线程中，需要通过Update推送到主线程。
+            Array.Resize<byte>(ref buffer, (int)size); //8192裁剪
+            EventManager.Get().queue.Enqueue(buffer);
         }
 
         protected override void OnError(SocketError error)
@@ -115,27 +86,25 @@ namespace HotFix
             client?.DisconnectAndStop();
         }
 
-        public static void Send(PacketType msgId, IMessage cmd)
+        public static void Send(PacketType msgId, object cmd)
         {
-            /*
             byte[] header = new byte[1] { (byte)msgId };
-            byte[] body = ProtobufferTool.Serialize(cmd);
+            byte[] body = ProtobufHelper.ToBytes(cmd);
             byte[] buffer = new byte[header.Length + body.Length];
             System.Array.Copy(header, 0, buffer, 0, header.Length);
             System.Array.Copy(body, 0, buffer, header.Length, body.Length);
             //Debug.Log($"[Send] header:{header.Length},body:{body.Length},buffer:{buffer.Length},");
-            client.Send(buffer);*/
+            client.Send(buffer);
         }
-        public static void SendAsync(PacketType msgId, IMessage cmd)
+        public static void SendAsync(PacketType msgId, object cmd)
         {
-            /*
             byte[] header = new byte[1] { (byte)msgId };
-            byte[] body = ProtobufferTool.Serialize(cmd);
+            byte[] body = ProtobufHelper.ToBytes(cmd);
             byte[] buffer = new byte[header.Length + body.Length];
             System.Array.Copy(header, 0, buffer, 0, header.Length);
             System.Array.Copy(body, 0, buffer, header.Length, body.Length);
             Debug.Log($"[SendAsync] header:{header.Length},body:{body.Length},buffer:{buffer.Length},");
-            client.SendAsync(buffer);*/
+            client.SendAsync(buffer);
         }
         public static void SendAsync(byte[] buffer)
         {
@@ -155,9 +124,9 @@ namespace HotFix
                 return;
             }
             //TODO: 服务器/客户端共用规则，双边验证...
-            /*
+            
             C2S_Login cmd = new C2S_Login { Username = usr, Password = pwd };
-            SendAsync(PacketType.C2S_LoginReq, cmd);*/
+            SendAsync(PacketType.C2S_LoginReq, cmd);
         }
         public static void SendChat(string message)
         {

@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using UnityEngine;
-using ProtoBuf;
 using ET;
 
 namespace HotFix
@@ -17,10 +16,6 @@ namespace HotFix
             list.Content.Add("abc");
             list.Content.Add("xyz");
             Debug.Log($"list={list.Content.Count}");
-            //MemoryStream memoryStream = new MemoryStream();
-            //ProtobufHelper.ToStream(list, memoryStream);
-            //byte[] bytes = memoryStream.ToArray();
-            //Debug.Log($"序列化: bytes={bytes.Length}"); //17
             byte[] bytes2 = ProtobufHelper.ToBytes(list);
             Debug.Log($"序列化: bytes2={bytes2.Length}"); //17
 
@@ -65,7 +60,6 @@ namespace HotFix
         public static void Init()
         {
             UIManager.Get().Push<UI_Login>();
-            //Proto();
         }
     }
 }

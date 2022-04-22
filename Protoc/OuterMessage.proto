@@ -1,246 +1,69 @@
 syntax = "proto3";
 package ET;
+//option csharp_namespace = "HotFix";
 
-//ResponseType M2C_TestResponse
-message C2M_TestRequest // IActorLocationRequest
+// 错误码
+message ErrorPacket
 {
-	int32 RpcId = 90;
-	string request = 1;
+	int32 Code = 1;
+	string Message = 2;
 }
-
-message M2C_TestResponse // IActorLocationResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-	string response = 1;
-}
-
-//ResponseType Actor_TransferResponse
-message Actor_TransferRequest // IActorLocationRequest
-{
-	int32 RpcId = 90;
-	int32 MapIndex = 1;
-}
-
-message Actor_TransferResponse // IActorLocationResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-}
-
-//ResponseType G2C_EnterMap
-message C2G_EnterMap // IRequest
-{
-	int32 RpcId = 1;
-}
-
-message G2C_EnterMap // IResponse
-{
-	int32 RpcId = 1;
-	int32 Error = 2;
-	string Message = 3;
-	// 自己unitId
-	int64 MyId = 4;
-}
-
-message MoveInfo
-{
-	repeated float X = 1;
-	repeated float Y = 2;
-	repeated float Z = 3;
-
-	float A = 4;
-	float B = 5;
-	float C = 6;
-	float W = 7;
-	int32 TurnSpeed = 8;
-}
-
-message UnitInfo
-{
-	int64 UnitId = 1;
-	int32 ConfigId = 2;
-	int32 Type = 3;
-	float X = 4;
-	float Y = 5;
-	float Z = 6;
-	float ForwardX = 7;
-	float ForwardY = 8;
-	float ForwardZ = 9;
-	repeated int32 Ks = 10;
-	repeated int64 Vs = 11;
-	MoveInfo MoveInfo = 12;
-}
-
-message M2C_CreateUnits // IActorMessage
-{
-	repeated UnitInfo Units = 2;
-}
-
-message M2C_CreateMyUnit // IActorMessage
-{
-	UnitInfo Unit = 1;
-}
-
-message M2C_StartSceneChange // IActorMessage
-{
-	int64 SceneInstanceId = 1;
-	string SceneName = 2;	
-}
-
-message M2C_RemoveUnits // IActorMessage
-{
-	repeated int64 Units = 2;
-}
-
-message C2M_PathfindingResult // IActorLocationMessage
-{
-	int32 RpcId = 90;
-
-	float X = 1;
-	float Y = 2;
-	float Z = 3;
-}
-
-message C2M_Stop // IActorLocationMessage
-{
-	int32 RpcId = 90;
-}
-
-message M2C_PathfindingResult // IActorMessage
-{
-	int64 Id = 1;
-
-	float X = 2;
-	float Y = 3;
-	float Z = 4;
-
-	repeated float Xs = 5;
-	repeated float Ys = 6;
-	repeated float Zs = 7;
-}
-
-message M2C_Stop // IActorMessage
-{
-	int32 Error = 1;
-
-	int64 Id = 2;
-	float X = 3;
-	float Y = 4;
-	float Z = 5;
-
-	float A = 6;
-	float B = 7;
-	float C = 8;
-	float W = 9;
-}
-
-//ResponseType G2C_Ping
-message C2G_Ping // IRequest
-{
-	int32 RpcId = 90;
-}
-
-message G2C_Ping // IResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-
-	int64 Time = 1;
-}
-
-
-message G2C_Test // IMessage
+//message Empty {} //注意括号不能写在一行，工具不认。
+message Empty
 {
 }
 
-//ResponseType M2C_Reload
-message C2M_Reload // IRequest
+// 聊天
+message TheMsg
 {
-	int32 RpcId = 90;
-	string Account = 1;
-	string Password = 2;
+	string Name = 1;
+	string Content = 2;
 }
-
-message M2C_Reload // IResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-}
-
-//ResponseType R2C_Login
-message C2R_Login // IRequest
-{
-	int32 RpcId = 90;
-	string  Account = 1;  // 帐号
-	string  Password = 2;  // 密码
-}
-
-message R2C_Login // IResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-	string Address = 1;
-	int64 Key = 2;
-	int64 GateId = 3;
-}
-
-//ResponseType G2C_LoginGate
-message C2G_LoginGate // IRequest
-{
-	int32 RpcId = 90;
-	int64 Key = 1;  // 帐号
-	int64 GateId = 2;
-}
-
-message G2C_LoginGate // IResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-	int64 PlayerId = 1;
-}
-
-message G2C_TestHotfixMessage // IMessage
-{
-	string Info = 1;
-}
-
-//ResponseType M2C_TestRobotCase
-message C2M_TestRobotCase // IActorLocationRequest
-{
-	int32 RpcId = 90;
-	int32 N = 1;
-}
-
-message M2C_TestRobotCase // IActorLocationResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-	int32 N = 1;
-}
-
-//ResponseType M2C_TransferMap
-message C2M_TransferMap // IActorLocationRequest
-{
-	int32 RpcId = 1;
-}
-
-message M2C_TransferMap // IActorLocationResponse
-{
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-}
-
 message TheMsgList
 {
 	int32 Id = 1;
 	repeated string Content = 2;
+}
+
+// 登录
+message C2S_Login
+{
+	string Username = 1;
+	string Password = 2;
+}
+message S2C_Login
+{
+	int32 Code = 1;
+	string Nickname = 2;
+}
+
+// 房间
+message C2S_CreateRoom
+{
+	string RoomName = 1; //房间名
+	string RoomPwd 	= 2; //房间密码
+	int32 LimitNum 	= 3; //玩家数
+}
+message C2S_JoinRoom
+{
+	int32 RoomID 	= 1; //房间Id
+	string RoomPwd 	= 2; //房间密码
+}
+message S2C_RoomInfo
+{
+	RoomInfo Room = 1;
+}
+//message C2S_GetRoomList {} //传Empty就行
+message S2C_GetRoomList
+{
+	repeated RoomInfo Rooms = 1;
+}
+//message C2S_LeaveRoom {} //传Empty就行
+//message S2C_LeaveRoom {}
+message RoomInfo
+{
+	int32 RoomID 	= 1; //房间Id
+	string RoomName = 2; //房间名
+	int32 CurNum 	= 3; //当前玩家数
+	int32 LimitNum 	= 4; //玩家总数
 }
