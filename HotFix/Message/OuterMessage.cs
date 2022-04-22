@@ -498,7 +498,10 @@ namespace ET
 	public partial class TheMsgList: Object
 	{
 		[ProtoMember(1)]
-		public List<string> content = new List<string>();
+		public int Id { get; set; }
+
+		[ProtoMember(2)]
+		public List<string> Content = new List<string>();
 
 	}
 

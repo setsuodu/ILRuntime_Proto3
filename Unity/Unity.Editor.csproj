@@ -62,7 +62,6 @@
     <Compile Include="Assets\Editor\CreateConfig.cs" />
     <Compile Include="Assets\Editor\ShellHelper.cs" />
     <Compile Include="Assets\Editor\ToolsEditor.cs" />
-    <Compile Include="Assets\Editor\Proto2CS_SourceCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\Unity.Editor.asmdef" />

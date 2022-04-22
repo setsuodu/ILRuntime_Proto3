@@ -12,10 +12,11 @@ namespace HotFix
         {
             Debug.Log("测试Proto!");
             TheMsgList list = new TheMsgList();
-            list.content.Add("111");
-            list.content.Add("abc");
-            list.content.Add("xyz");
-            Debug.Log($"list={list.content.Count}");
+            list.Id = 123;
+            list.Content.Add("111");
+            list.Content.Add("abc");
+            list.Content.Add("xyz");
+            Debug.Log($"list={list.Content.Count}");
             MemoryStream memoryStream = new MemoryStream();
             ProtobufHelper.ToStream(list, memoryStream);
             byte[] bytes = memoryStream.ToArray();
@@ -26,7 +27,7 @@ namespace HotFix
 
             MemoryStream stream = new MemoryStream(bytes2, 0, bytes2.Length);
             var obj = ProtobufHelper.FromStream(typeof(TheMsgList), stream) as TheMsgList;
-            Debug.Log($"反序列化: obj={obj.content[1]}");
+            Debug.Log($"反序列化: obj={obj.Content[1]}");
         }
         #endregion
 
