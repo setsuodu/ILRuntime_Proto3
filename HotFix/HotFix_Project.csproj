@@ -101,9 +101,8 @@
     <Compile Include="Core\Message\ResponseTypeAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TCP\Buffer.cs" />
-    <Compile Include="TCP\ChatClient.cs" />
+    <Compile Include="TCP\TcpChatClient.cs" />
     <Compile Include="TCP\TcpClient.cs" />
-    <Compile Include="TCP\TcpHelper.cs" />
     <Compile Include="UI\UIBase.cs" />
     <Compile Include="UI\UI_Login.cs" />
     <Compile Include="UI\UI_Main.cs" />

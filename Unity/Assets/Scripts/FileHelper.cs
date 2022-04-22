@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEditor;
 
 public class FileHelper
 {
@@ -73,8 +72,6 @@ public class FileHelper
         Debug.Log($"Write data length={data.Length}");
 
         string fileName = "byte[]对比_Client";
-        //string root = Environment.CurrentDirectory;
-        //string filePath = $"{root}/Assets/{fileName}.txt";
         string filePath = @$"C:\Users\Administrator\Desktop\ILRuntime_Proto3\{fileName}.txt";
         File.WriteAllBytes(filePath, data); //直接覆盖了
         Debug.Log($"WriteBytes to: {filePath}");

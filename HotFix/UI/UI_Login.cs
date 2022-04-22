@@ -43,52 +43,40 @@ namespace HotFix
 
         void OnHelpBtnClick()
         {
-            /*
-            TheMsg cmd = new TheMsg { Name = "lala", Content = "say hello" };
-            byte msgId = (byte)PacketType.C2S_LoginReq;
-            byte[] header = new byte[1] { msgId };
-            byte[] body = ProtobufferTool.Serialize(cmd);
-            byte[] buffer = new byte[header.Length + body.Length];
-            Array.Copy(header, 0, buffer, 0, header.Length);
-            Array.Copy(body, 0, buffer, header.Length, body.Length);
-            //Debug.Log($"header:{header.Length},body:{body.Length},buffer:{buffer.Length},");
-            TcpHelper.SendAsync(buffer);
-            */
             TheMsgList list = new TheMsgList();
             list.Id = 12;
             list.Content.Add("hello");
             list.Content.Add("world");
             Debug.Log($"list={list.Content.Count}");
+
             MemoryStream memoryStream = new MemoryStream();
             ProtobufHelper.ToStream(list, memoryStream);
             byte[] body = memoryStream.ToArray();
             Debug.Log($"序列化: body={body.Length}"); //16
             FileHelper.WriteBytes(body);
-            TcpHelper.SendAsync(body);
 
-            /*
-            byte msgId = (byte)PacketType.C2S_LoginReq;
-            byte[] header = new byte[1] { msgId };
-            //Debug.Log($"序列化: body={body.Length}");
-
+            PacketType msgId = PacketType.C2S_LoginReq;
+            byte[] header = new byte[1] { (byte)msgId };
+            //byte[] body = ProtobufferTool.Serialize(cmd);
             byte[] buffer = new byte[header.Length + body.Length];
-            Array.Copy(header, 0, buffer, 0, header.Length);
-            Array.Copy(body, 0, buffer, header.Length, body.Length);
-            TcpHelper.SendAsync(buffer);*/
+            System.Array.Copy(header, 0, buffer, 0, header.Length);
+            System.Array.Copy(body, 0, buffer, header.Length, body.Length);
+
+            TcpChatClient.SendAsync(buffer);
         }
 
         void OnQQBtnClick()
         {
             Debug.Log("[Hotfix] QQ登录");
 
-            TcpHelper.Connect();
+            TcpChatClient.Connect();
         }
 
         void OnWXBtnClick()
         {
             Debug.Log("[Hotfix] 微信登录");
 
-            TcpHelper.Disconnect();
+            TcpChatClient.Disconnect();
         }
 
         void OnRegisterBtnClick()

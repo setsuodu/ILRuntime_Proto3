@@ -8,7 +8,7 @@ namespace HotFix
     public class Main
     {
         #region 测试
-        public void Proto()
+        public static void Proto()
         {
             Debug.Log("测试Proto!");
             TheMsgList list = new TheMsgList();
@@ -17,12 +17,12 @@ namespace HotFix
             list.Content.Add("abc");
             list.Content.Add("xyz");
             Debug.Log($"list={list.Content.Count}");
-            MemoryStream memoryStream = new MemoryStream();
-            ProtobufHelper.ToStream(list, memoryStream);
-            byte[] bytes = memoryStream.ToArray();
-            Debug.Log($"序列化: bytes={bytes.Length}");
+            //MemoryStream memoryStream = new MemoryStream();
+            //ProtobufHelper.ToStream(list, memoryStream);
+            //byte[] bytes = memoryStream.ToArray();
+            //Debug.Log($"序列化: bytes={bytes.Length}"); //17
             byte[] bytes2 = ProtobufHelper.ToBytes(list);
-            Debug.Log($"序列化: bytes2={bytes2.Length}");
+            Debug.Log($"序列化: bytes2={bytes2.Length}"); //17
 
 
             MemoryStream stream = new MemoryStream(bytes2, 0, bytes2.Length);
@@ -65,6 +65,7 @@ namespace HotFix
         public static void Init()
         {
             UIManager.Get().Push<UI_Login>();
+            //Proto();
         }
     }
 }
