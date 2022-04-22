@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using IMessage = Google.Protobuf.IMessage;
+//using IMessage = Google.Protobuf.IMessage;
 
 namespace HotFix
 {
@@ -39,7 +39,8 @@ namespace HotFix
             Array.Copy(buffer, 1, body, 0, buffer.Length - 1);
 
             PacketType type = (PacketType)msgId;
-            //Debug.Log($"PacketType={type}");
+            Debug.Log($"PacketType={type}");
+            /*
             switch (type)
             {
                 case PacketType.Connected:
@@ -82,12 +83,13 @@ namespace HotFix
                     Debug.LogError($"Handle:无法识别的消息: {type}");
                     break;
             }
-            //TODO: 通过委托分发出去
+            */
         }
     }
 
     public class NetPacketManager
     {
+        /*
         public delegate void EventHandler(PacketType t, IMessage packet);
         public static event EventHandler Event;
         public static void RegisterEvent(EventHandler action)
@@ -102,6 +104,7 @@ namespace HotFix
         {
             Event?.Invoke(type, packet);
         }
+        */
     }
 
     public class NetStateManager

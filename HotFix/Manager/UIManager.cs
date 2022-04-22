@@ -33,7 +33,7 @@ namespace HotFix
             Debug.Log($"[Hotfix] CreatePanel={className}");
 
             string fileName = $"ui/{className.ToLower()}";
-            GameObject prefab = ResManager.LoadPrefab(fileName);
+            GameObject prefab = Client.ResManager.LoadPrefab(fileName);
             GameObject go = Instantiate(prefab, Parent);
             go.name = className;
             //go.layer = LayerMask.NameToLayer("UI");
@@ -62,7 +62,7 @@ namespace HotFix
             }
             else
             {
-                GameObject prefab = ResManager.LoadPrefab($"ui/{scriptName}");
+                GameObject prefab = Client.ResManager.LoadPrefab($"ui/{scriptName}");
                 GameObject obj = Instantiate(prefab, Parent);
                 obj.transform.localPosition = Vector3.zero;
                 obj.name = scriptName;

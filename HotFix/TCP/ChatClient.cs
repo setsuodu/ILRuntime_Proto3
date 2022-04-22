@@ -52,8 +52,8 @@ namespace HotFix
                 case PacketType.Connected:
                     break;
                 case PacketType.C2S_LoginReq:
-                    TheMsg msg = ProtobufferTool.Deserialize<TheMsg>(body);
-                    Debug.Log($"[{type}] Name={msg.Name}, Content={msg.Content}");
+                    //TheMsg msg = ProtobufferTool.Deserialize<TheMsg>(body);
+                    //Debug.Log($"[{type}] Name={msg.Name}, Content={msg.Content}");
                     break;
             }
             //TODO: 通过委托分发出去

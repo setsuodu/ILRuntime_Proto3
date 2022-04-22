@@ -42,7 +42,7 @@ namespace HotFix
         void OnHelpBtnClick()
         {
             //TcpHelper.SendAsync("lalala");
-
+            /*
             TheMsg cmd = new TheMsg { Name = "lala", Content = "say hello" };
             byte msgId = (byte)PacketType.C2S_LoginReq;
             byte[] header = new byte[1] { msgId };
@@ -50,8 +50,9 @@ namespace HotFix
             byte[] buffer = new byte[header.Length + body.Length];
             Array.Copy(header, 0, buffer, 0, header.Length);
             Array.Copy(body, 0, buffer, header.Length, body.Length);
-            Debug.Log($"header:{header.Length},body:{body.Length},buffer:{buffer.Length},");
+            //Debug.Log($"header:{header.Length},body:{body.Length},buffer:{buffer.Length},");
             TcpHelper.SendAsync(buffer);
+            */
         }
 
         void OnQQBtnClick()

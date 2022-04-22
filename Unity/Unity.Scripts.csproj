@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.30f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Utils\UnitySingletonClass.cs" />
@@ -67,16 +67,14 @@
     <Compile Include="Assets\Scripts\Adapter\AdaptHelper.cs" />
     <Compile Include="Assets\Scripts\UI\UIBase.cs" />
     <Compile Include="Assets\Scripts\Managers\ResManager.cs" />
-    <Compile Include="Assets\Scripts\Adapter\UIBaseAdapter.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ThreadDownload.cs" />
-    <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ConstValue.cs" />
-    <Compile Include="Assets\Scripts\Adapter\Adapt_IMessage.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILGlobal.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Adapter\ProtobufAdapter.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILUIBase.cs" />
+    <Compile Include="Assets\Scripts\Adapter\ILHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Unity.Scripts.asmdef" />

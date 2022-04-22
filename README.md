@@ -6,7 +6,7 @@ Unity3D demo project for ILRuntime
 ### 版本
 - Unity2020.3.30f1c1
 - VS2019 Professional
-- Proto 3.0.0-win32
+- Proto 3.0.0-win32 （已支持Repeated）
 - ILRuntime 2.0.2
 - wampserver 3.2.6
 - .NetCore 3.1.0
@@ -36,4 +36,5 @@ Unity3D demo project for ILRuntime
 ### //TODO
 - [x] 1. 使用包管理或其他方法，方便升级 ILRuntime 源码。
 - [ ] 2. 打包热更新代码再自动化一点。允许打包单个资源。
+- [ ] 3. 参考[ET初始化](https://github.com/egametang/ET/blob/9326784f37d5eacfda469c93b2764d18f3c6f101/Unity/Assets/Mono/CodeLoader.cs)，把可能的委托类型都注册了占位，避免需要时无法热更。
 

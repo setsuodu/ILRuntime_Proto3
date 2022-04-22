@@ -8,8 +8,8 @@ using ILRuntime.Runtime.Intepreter;
 using ILRuntime.Runtime.Stack;
 using ILRuntime.Runtime.Enviorment;
 using UnityEngine;
-using Google.Protobuf;
-using Tutorial;
+//using Google.Protobuf;
+//using Tutorial;
 
 public class Proto3 : MonoBehaviour
 {
@@ -28,28 +28,6 @@ public class Proto3 : MonoBehaviour
     void OnDestroy()
     {
         fs.Close();
-    }
-
-    void ClientSideProto()
-    {
-        #region Class序列化成二进制
-        TheMsg msg = new TheMsg();
-        msg.Name = "am the name";
-        msg.Content = "haha";
-        Debug.Log(string.Format("The Msg is ( Name:{0}, Num:{1} )", msg.Name, msg.Content));
-
-        byte[] bmsg;
-        using (MemoryStream ms = new MemoryStream())
-        {
-            msg.WriteTo(ms);
-            bmsg = ms.ToArray();
-        }
-        #endregion
-
-        #region 二进制反序列化成Class
-        TheMsg msg2 = TheMsg.Parser.ParseFrom(bmsg);
-        Debug.Log(string.Format("The Msg2 is ( Name:{0}, Num:{1} )", msg2.Name, msg2.Content));
-        #endregion
     }
 
     IEnumerator LoadHotFixAssembly()
@@ -80,13 +58,11 @@ public class Proto3 : MonoBehaviour
     unsafe void InitializeILRuntime()
     {
         appdomain.RegisterCrossBindingAdaptor(new MonoBehaviourAdapter());
-        appdomain.RegisterCrossBindingAdaptor(new Adapter_Protobuf());
     }
 
     unsafe void OnHotFixLoaded()
     {
         SetupCLRRedirection();
-        appdomain.Invoke("HotFix.Main", "Print", gameObject, null);
         appdomain.Invoke("HotFix.Main", "Proto", gameObject, null);
     }
 

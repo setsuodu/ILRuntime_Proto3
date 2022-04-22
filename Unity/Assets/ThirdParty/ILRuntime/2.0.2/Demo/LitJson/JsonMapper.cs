@@ -986,6 +986,12 @@ namespace LitJson
                 delegate { return new JsonData (); }, json);
         }
 
+        public static object ToObject(Type type, string json)
+        {
+            JsonReader reader = new JsonReader(json);
+            return ReadValue(type, reader);
+        }
+
         public static T ToObject<T> (JsonReader reader)
         {
             return (T) ReadValue (typeof (T), reader);

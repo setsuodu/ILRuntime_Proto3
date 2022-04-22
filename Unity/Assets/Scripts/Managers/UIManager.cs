@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-//public delegate void ShowSkillText(int pid, string content);
-//public delegate void SetTimeText(string second);
-//public delegate void SetCurrentHp(int pid, int hp);
 // 全局配置。不放场景中，通过脚本创建。
 public class UIManager : MonoBehaviour
 {
@@ -16,7 +13,7 @@ public class UIManager : MonoBehaviour
         }
         if (_instance == null)
         {
-            var prefab = ResManager.LoadPrefab($"Prefabs/UIManager");
+            var prefab = Client.ResManager.LoadPrefab($"Prefabs/UIManager");
             var obj = Instantiate(prefab);
             obj.name = "UIManager";
             _instance = obj.GetComponent<UIManager>();
@@ -96,7 +93,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            GameObject prefab = ResManager.LoadPrefab($"ui/{scriptName}");
+            GameObject prefab = Client.ResManager.LoadPrefab($"ui/{scriptName}");
             Transform p = layer == 1 ? Parent : Top;
             GameObject obj = Instantiate(prefab, p);
             obj.transform.localPosition = Vector3.zero;

@@ -1,49 +1,32 @@
-﻿using UnityEngine;
-using Google.Protobuf;
+﻿using System.IO;
+using UnityEngine;
+using ProtoBuf;
+using ET;
 
 namespace HotFix
 {
     public class Main
     {
         #region 测试
-        public static void Print() 
-        {
-            Debug.Log("Test Print");
-        }
         public void Proto()
         {
-            ///*
-            #region Class序列化成二进制
-            var msg = new HotFix.TheMsg();
-            msg.Name = "am the name";
-            msg.Content = "haha";
-            Debug.Log(string.Format("The Msg is ( Name:{0}, Num:{1} )", msg.Name, msg.Content));
+            Debug.Log("测试Proto!");
+            TheMsgList list = new TheMsgList();
+            list.content.Add("111");
+            list.content.Add("abc");
+            list.content.Add("xyz");
+            Debug.Log($"list={list.content.Count}");
+            MemoryStream memoryStream = new MemoryStream();
+            ProtobufHelper.ToStream(list, memoryStream);
+            byte[] bytes = memoryStream.ToArray();
+            Debug.Log($"序列化: bytes={bytes.Length}");
+            byte[] bytes2 = ProtobufHelper.ToBytes(list);
+            Debug.Log($"序列化: bytes2={bytes2.Length}");
 
-            byte[] bmsg;
-            using (var ms = new System.IO.MemoryStream())
-            {
-                msg.WriteTo(ms);
-                bmsg = ms.ToArray();
-            }
-            #endregion
 
-            #region 二进制反序列化成Class
-            var msg2 = HotFix.TheMsg.Parser.ParseFrom(bmsg);
-            Debug.Log(string.Format("The Msg2 is ( Name:{0}, Num:{1} )", msg2.Name, msg2.Content));
-            #endregion
-            //*/
-
-            /*
-            var msg = new HotFix.TheMsg();
-            msg.Name = "am the name";
-            msg.Content = "haha";
-            Debug.Log(string.Format("The Msg is ( Name:{0}, Num:{1} )", msg.Name, msg.Content));
-
-            byte[] bytes = ProtoHelper.Serialize(msg);
-
-            var msg2 = ProtoHelper.Deserialize<HotFix.TheMsg>(bytes);
-            Debug.Log(string.Format("The Msg2 is ( Name:{0}, Num:{1} )", msg2.Name, msg2.Content));
-            */
+            MemoryStream stream = new MemoryStream(bytes2, 0, bytes2.Length);
+            var obj = ProtobufHelper.FromStream(typeof(TheMsgList), stream) as TheMsgList;
+            Debug.Log($"反序列化: obj={obj.content[1]}");
         }
         #endregion
 

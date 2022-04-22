@@ -13,13 +13,6 @@ namespace HotFix
             m_CloseBtn = transform.Find("CloseButton").GetComponent<Button>();
 
             m_CloseBtn.onClick.AddListener(OnRegisterBtnClick);
-
-            //TheMsg msg = new TheMsg
-            //{
-            //    Name = "Jack",
-            //    Content = "Update",
-            //};
-            //Debug.Log($"Test proto: {msg.Name}, {msg.Content}");
         }
 
         void OnDestroy()
