@@ -106,10 +106,6 @@ namespace HotFix
             Debug.Log($"[SendAsync] header:{header.Length},body:{body.Length},buffer:{buffer.Length},");
             client.SendAsync(buffer);
         }
-        public static void SendAsync(byte[] buffer)
-        {
-            //ÁÙÊ±µÄ£¬ÒªÉ¾³ý
-        }
 
         public static void SendLogin(string usr, string pwd)
         {

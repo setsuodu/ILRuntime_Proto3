@@ -61,5 +61,10 @@ namespace HotFix
         {
             UIManager.Get().Push<UI_Login>();
         }
+
+        public static void Dispose()
+        {
+            TcpChatClient.Dispose(); //关闭网络线程
+        }
     }
 }

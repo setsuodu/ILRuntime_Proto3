@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scripts\Utils\ConstValue.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILGlobal.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
-    <Compile Include="Assets\Scripts\Adapter\ProtobufAdapter.cs" />
     <Compile Include="Assets\Scripts\Adapter\ILUIBase.cs" />
   </ItemGroup>
   <ItemGroup>

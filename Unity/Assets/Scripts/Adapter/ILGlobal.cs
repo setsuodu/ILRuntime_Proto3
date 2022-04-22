@@ -16,6 +16,11 @@ namespace Client
             appdomain = new AppDomain();
         }
 
+        void OnApplicationQuit()
+        {
+            appdomain.Invoke("HotFix.Main", "Dispose", null, null);
+        }
+
         public void GlobalInit()
         {
             StartCoroutine(LoadHotFixAssembly());
@@ -42,22 +47,20 @@ namespace Client
             appdomain.UnityMainThreadID = System.Threading.Thread.CurrentThread.ManagedThreadId;
 #endif
 
+            // CLR绑定（当需要绑定代码时）
+            //ILRuntime.Runtime.Generated.CLRBindings.Initialize(appdomain);
+
             // 这里做一些ILRuntime的注册
             appdomain.RegisterCrossBindingAdaptor(new MonoBehaviourAdapter()); //注册跨域继承
             appdomain.RegisterCrossBindingAdaptor(new CoroutineAdapter()); //注册System.IDisposable, IEnumerator
-            appdomain.RegisterCrossBindingAdaptor(new ProtobufAdapter());
+                                                                           //appdomain.RegisterCrossBindingAdaptor(new ProtobufAdapter());
+
+            //注册litjson
+            //LitJson.JsonMapper.RegisterILRuntimeCLRRedirection(appdomain);
 
             // 注册"空参空返回"型的委托
             appdomain.DelegateManager.RegisterMethodDelegate<ILTypeInstance>();
             appdomain.DelegateManager.RegisterDelegateConvertor<UnityAction>((act) => { return new UnityAction(() => { ((System.Action)act)(); }); });
-            //appdomain.DelegateManager.RegisterFunctionDelegate<UIBase, System.Boolean>();
-            //appdomain.DelegateManager.RegisterDelegateConvertor<System.Predicate<UIBase>>((act) =>
-            //{
-            //    return new System.Predicate<UIBase>((obj) =>
-            //    {
-            //        return ((System.Func<UIBase, System.Boolean>)act)(obj);
-            //    });
-            //});
             appdomain.DelegateManager.RegisterMethodDelegate<System.Object, System.Net.Sockets.SocketAsyncEventArgs>();
             appdomain.DelegateManager.RegisterDelegateConvertor<System.EventHandler<System.Net.Sockets.SocketAsyncEventArgs>>((act) =>
             {
@@ -68,7 +71,7 @@ namespace Client
             });
 
             LitJson.JsonMapper.RegisterILRuntimeCLRRedirection(appdomain);
-            ET.ILHelper.InitILRuntime(appdomain); // 好像没啥用
+            ET.ILHelper.InitILRuntime(appdomain); //好像没啥用
 
             // HelloWorld，第一次方法调用
             //appdomain.Invoke("HotFix.Main", "Proto", gameObject, null); //实例方法
