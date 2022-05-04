@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HotFix
@@ -25,8 +26,33 @@ namespace HotFix
             recyclePool = new Dictionary<string, UIBase>();
         }
 
-        public void GetActivePanel() { }
-        public void GetPanel(string className) { }
+        public UIBase GetActiveUI()
+        {
+            var child = Parent.GetChild(Parent.childCount - 1);
+            //Debug.Log($"GetActive: {child.name}");
+            string scriptName = child.name;
+
+            UIBase ui = null;
+            if (stack.TryGetValue(scriptName, out ui) == false)
+            {
+                Debug.LogError($"还没有创建：{scriptName}");
+                return null;
+            }
+            return ui.GetComponent<UIBase>();
+        }
+
+        public T GetUI<T>() where T : UIBase
+        {
+            string scriptName = typeof(T).ToString().Replace("HotFix.", "");
+            //Debug.Log($"GetUI: {scriptName}");
+            UIBase ui = null;
+            if (stack.TryGetValue(scriptName, out ui) == false)
+            {
+                Debug.LogError($"还没有创建：{scriptName}");
+                return null;
+            }
+            return ui.GetComponent<T>();
+        }
 
         public T Push<T>() where T : UIBase
         {
@@ -41,14 +67,14 @@ namespace HotFix
             {
                 recyclePool.Remove(scriptName);
                 stack.Add(scriptName, ui);
-                Debug.Log($"<color=yellow>ReUse{stack.Count}/{recyclePool.Count}</color>");
+                //Debug.Log($"<color=yellow>ReUse{stack.Count}/{recyclePool.Count}</color>");
                 ui.gameObject.SetActive(true);
                 ui.transform.SetAsLastSibling();
                 return ui.GetComponent<T>();
             }
             else
             {
-                GameObject prefab = Client.ResManager.LoadPrefab($"ui/{scriptName}");
+                GameObject prefab = ResManager.LoadPrefab($"ui/{scriptName}");
                 GameObject obj = Instantiate(prefab, Parent);
                 obj.transform.localPosition = Vector3.zero;
                 obj.name = scriptName;
@@ -57,7 +83,7 @@ namespace HotFix
                     obj.AddComponent<T>();
                 var script = obj.GetComponent<T>();
                 stack.Add(scriptName, script);
-                Debug.Log($"<color=yellow>New{stack.Count}/{recyclePool.Count}</color>");
+                //Debug.Log($"<color=yellow>New{stack.Count}/{recyclePool.Count}</color>");
                 return script;
             }
         }
@@ -70,19 +96,19 @@ namespace HotFix
                 Debug.LogError("没有需要销毁的UI");
                 return;
             }
-            //Debug.Log($"Pop: {scriptName}");
             stack.Remove(scriptName);
-            //Destroy(ui.gameObject);
-            //Debug.Log($"recyclePool={recyclePool.Count}");
             recyclePool.Add(scriptName, ui);
             ui.gameObject.SetActive(false);
         }
         public void PopAll()
         {
-            foreach (var ui in stack)
+            foreach (var item in stack)
             {
-                Pop(ui.Value);
+                //Debug.Log($"{item.Key}---{item.Value.gameObject}");
+                recyclePool.Add(item.Key, item.Value);
+                item.Value.gameObject.SetActive(false);
             }
+            stack.Clear();
         }
 
         #region 测试
