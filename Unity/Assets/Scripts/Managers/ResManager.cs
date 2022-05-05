@@ -52,11 +52,11 @@ namespace Client
             for (int i = 0; i < depends.Length; i++)
             {
                 string dependPath = GetFilePath(depends[i]);
-                AssetBundle dependAsset = AssetBundle.LoadFromFile(dependPath.ToLower());
+                AssetBundle dependAsset = AssetBundle.LoadFromFile(dependPath);
                 dependBundles.Add(dependAsset);
             }
 
-            var asset = AssetBundle.LoadFromFile(filePath.ToLower());
+            var asset = AssetBundle.LoadFromFile(filePath);
             GameObject prefab = asset.LoadAllAssets()[0] as GameObject;
             asset.Unload(false);
 
