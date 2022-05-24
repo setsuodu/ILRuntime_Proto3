@@ -2,7 +2,7 @@
 
 这个是ILRuntime整合Proto3的U3D示例工程
 
-### 版本
+## 版本
 
 - [![unity](https://img.shields.io/badge/Unity-2020.3.33f1c2-blue.svg?logo=unity)]()
 - [![vs](https://img.shields.io/badge/VisualStudio-2022-purple.svg?logo=visualstudio)]()
@@ -11,29 +11,27 @@
 - .NetCore 3.1.0
 - ILRuntime 2.0.2
 
-### 环境配置
+## 使用步骤
 
-- 1. ``'devenv' 不是内部或外部命令``。系统环境变量\Path\中，添加devenv.exe的目录。
-- 2. 下载 [http://protoc-3.x.x-win64.zip](https://github.com/protocolbuffers/protobuf/releases)，解压将其中的protoc.exe拷贝到 ``C:\windows\system32``，使用命令测试 proto环境 ``protoc --version``。
-- 3. 运行 ``.\ILRuntimeQ\Protoc\run.bat``，将 *.proto 转化为 *.cs。
-- 4. Web服务器配置：
+1. 拉取本工程完整代码，注意包含一个服务器的submodule工程；
+2. 打开服务器项目``/NetCoreServer/NetCoreApp.sln``（或在Unity中启动该项目 ``菜单栏/Assets/Open Server Project``），生成解决方案；
+3. 打开Unity项目，``菜单栏/Assets/Open C# Project``；选择``HotFix_Project``，右键生成，生成路径配置在``Unity/Assets/StreamingAssets``；Unity菜单中找到``Tools/热更新/MoveDll``，将热更新编译出的文件移动到``Bundles``包目录下，ILR代码将作为AB包打包；
+4. Tools/打包AB/StandaloneWindows64，打包资源；
+5. 启动一个web服务，IIS，Nignx，Apache等等，部署AB包；
+目录结构如下：
 ```
-.\download
-.\download\StandaloneWindows64
-.\download\present.json
+www\download\
+www\download\StandaloneWindows64\
+www\download\Android\
+www\download\iOS\
+www\download\present.json
 ```
+- 6. Unity中通过设置宏定义 ``USE_ASSETBUNDLE``，可在Unity中走AB包，或者默认走Editor资源加载；
+- 7. 运行场景Init；
 
-- 5. 热更工程配置：
-   1. 引用``Unity\Library\ScriptAssemblies``中的Assembly Definition。
-   2. 引用中设置不输出的dll。
+## 其他
 
-### 使用说明
-
-- 1. HotFix工程已嵌入到Untiy工程中，手动编译HotFix解决方案，生成 ``HotFix.dll ``到 ``StreamingAssets`` 目录下。
-- 2. 使用工具栏 ``Tools/打包AB/MoveDLL`` 将 HotFix.dll 热更新程序集拷贝到 AssetBundle 资源打包目录中。
-- 3. 再打包AB，将热更新代码座位AB打包。
-- 4. 注意阿里云、腾讯云等远程部署时，端口规则不在远程电脑上设置，而是在平台防火墙规则管理中。
-
-### //TODO
-- [ ] 1. 打包热更新代码再自动化一点。允许打包单个资源。
-- [ ] 2. 参考[ET初始化](https://github.com/egametang/ET/blob/9326784f37d5eacfda469c93b2764d18f3c6f101/Unity/Assets/Mono/CodeLoader.cs)，把可能的委托类型都注册了占位，避免需要时无法热更。
+1. 热更工程（HotFix_Project）配置：
+   - 引用``Unity\Library\ScriptAssemblies``中的Assembly Definition（UnityScript.dll, UnityThirdParty.dll）。
+   - 新版Untiy的引擎dll是根据功能分开编译的，如有需要用到声音，动画等，复制一份放到 \Libs\ 下，引用；
+   - 引用中所有dll设置为不输出。
