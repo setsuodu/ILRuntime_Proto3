@@ -1,0 +1,7 @@
+{
+	"server":"localhost",
+    "web":"http://localhost",
+    "ab_url":"http://localhost/download",
+    "version":"1.0.0",
+    "notice":"公告：xxx"
+}
