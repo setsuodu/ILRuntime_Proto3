@@ -14,8 +14,8 @@
 ## 使用步骤
 
 1. 拉取本工程完整代码，注意包含一个服务器的submodule工程；
-2. 打开服务器项目``/NetCoreServer/NetCoreApp.sln``（或在Unity中启动该项目 ``菜单栏/Assets/Open Server Project``），生成解决方案；
-3. 打开Unity项目，``菜单栏/Assets/Open C# Project``；选择``HotFix_Project``，右键生成，生成路径配置在``Unity/Assets/StreamingAssets``；Unity菜单中找到``Tools/热更新/MoveDll``，将热更新编译出的文件移动到``Bundles``包目录下，ILR代码将作为AB包打包；
+2. 打开服务器项目``\NetCoreServer\NetCoreApp.sln``（或在Unity中启动该项目 ``菜单栏/Assets/Open Server Project``），生成解决方案；
+3. 打开Unity项目，``菜单栏/Assets/Open C# Project``；选择``HotFix_Project``，右键生成，生成路径配置在``Unity\Assets\StreamingAssets``；Unity菜单中找到``Tools/热更新/MoveDll``，将热更新编译出的文件移动到``Bundles``包目录下，ILR代码将作为AB打包；
 4. Tools/打包AB/StandaloneWindows64，打包资源；
 5. 启动一个web服务，IIS，Nignx，Apache等等，部署AB包；
 目录结构如下：
@@ -35,3 +35,6 @@ www\download\present.json
    - 引用``Unity\Library\ScriptAssemblies``中的Assembly Definition（UnityScript.dll, UnityThirdParty.dll）。
    - 新版Untiy的引擎dll是根据功能分开编译的，如有需要用到声音，动画等，复制一份放到 \Libs\ 下，引用；
    - 引用中所有dll设置为不输出。
+2. Proto打包。
+   - 源文件是 \Protoc\OuterMessage.proto；
+   - 打包使用 ``Tools/生成Proto``，会分别生成到热更工程和服务器工程中；
