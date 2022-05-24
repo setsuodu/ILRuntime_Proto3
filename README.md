@@ -16,7 +16,7 @@
 1. 拉取本工程完整代码，注意包含一个服务器的submodule工程；
 2. 打开服务器项目``\NetCoreServer\NetCoreApp.sln``（或在Unity中启动该项目 ``菜单栏/Assets/Open Server Project``），生成解决方案；
 3. 打开Unity项目，``菜单栏/Assets/Open C# Project``；选择``HotFix_Project``，右键生成，生成路径配置在``Unity\Assets\StreamingAssets``；Unity菜单中找到``Tools/热更新/MoveDll``，将热更新编译出的文件移动到``Bundles``包目录下，ILR代码将作为AB打包；
-4. Tools/打包AB/StandaloneWindows64，打包资源；
+4. Tools/打包AB/StandaloneWindows64，打包资源；打包完在Unity Console中可以看到输出目录，拷贝到服务器上；
 5. 启动一个web服务，IIS，Nignx，Apache等等，部署AB包；
 目录结构如下：
 ```
