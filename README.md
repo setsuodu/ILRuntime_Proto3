@@ -26,8 +26,8 @@ www\download\Android\
 www\download\iOS\
 www\download\present.json
 ```
-- 6. Unity中通过设置宏定义 ``USE_ASSETBUNDLE``，可在Unity中走AB包，或者默认走Editor资源加载；
-- 7. 运行场景Init；
+6. Unity中通过设置宏定义 ``USE_ASSETBUNDLE``，可在Unity中走AB包，或者默认走Editor资源加载；
+7. 运行场景Init；
 
 ## 其他
 
