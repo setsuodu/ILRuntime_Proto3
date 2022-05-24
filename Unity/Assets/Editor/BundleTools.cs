@@ -52,7 +52,7 @@ public partial class BundleTools : Editor
 
     #region 标记
 
-    [MenuItem("Tools/打包AB/Set Labels", false, 11)]
+    [MenuItem("Tools/打包AB/Set Labels", true, 11)]
     private static void SetAssetBundleLabels()
     {
         // 移除所有没有使用的标记
@@ -95,7 +95,7 @@ public partial class BundleTools : Editor
     /// <summary>
     /// 清除所有的AssetBundleName，由于打包方法会将所有设置过AssetBundleName的资源打包，所以自动打包前需要清理
     /// </summary>
-    [MenuItem("Tools/打包AB/Clean Labels", false, 11)]
+    [MenuItem("Tools/打包AB/Clean Labels", true, 11)]
     private static void ClearAssetBundlesName()
     {
         // 获取所有的AssetBundle名称
@@ -408,7 +408,7 @@ public partial class BundleTools : Editor
         //Debug.Log($"to: {dstPath}");
         if (Directory.Exists(dstPath))
         {
-            Debug.Log($"dst存在：{dstPath}，先删除");
+            //Debug.Log($"dst存在：{dstPath}，先删除");
             Directory.Delete(dstPath, true);
         }
 

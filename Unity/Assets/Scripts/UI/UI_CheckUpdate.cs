@@ -11,7 +11,7 @@ public class UI_CheckUpdate : MonoBehaviour
 {
     private static string cloudPath;
     private static string localPath;
-    private List<JsonAssets> downloadList = new List<JsonAssets>();
+    private List<ABInfo> downloadList = new List<ABInfo>();
     [SerializeField] private Slider m_progressSlider;
     [SerializeField] private Text m_progressText;
     private int fileCount = 0;
@@ -35,8 +35,7 @@ public class UI_CheckUpdate : MonoBehaviour
     public IEnumerator StartCheck(System.Action action)
     {
         // 1. 读取网上(assets.bytes)
-        //ABInfo[] cloudInfos = new ABInfo[] { };
-        JsonAssets[] cloudInfos = new JsonAssets[] { };
+        ABInfo[] cloudInfos = new ABInfo[] { };
         List<string> cloudList = new List<string>();
         WWW www = new WWW(cloudPath);
         while (!www.isDone) { }
@@ -48,7 +47,7 @@ public class UI_CheckUpdate : MonoBehaviour
         }
         if (www.isDone)
         {
-            cloudInfos = JsonMapper.ToObject<JsonAssets[]>(www.text);
+            cloudInfos = JsonMapper.ToObject<ABInfo[]>(www.text);
             www.Dispose();
             for (int i = 0; i < cloudInfos.Length; i++)
             {
@@ -80,7 +79,7 @@ public class UI_CheckUpdate : MonoBehaviour
 
         // 3. 比较差异，创建下载列表(downloadList)
         var diff = cloudList.Except(localList).ToArray();
-        downloadList = new List<JsonAssets>();
+        downloadList = new List<ABInfo>();
         for (int i = 0; i < diff.Length; i++)
         {
             var ab = cloudInfos.Where(x => x.md5 == diff[i]).ToList()[0];

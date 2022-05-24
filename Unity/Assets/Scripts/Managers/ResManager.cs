@@ -7,42 +7,33 @@ using LitJson;
 using UnityEditor;
 #endif
 
-public class JsonAssets //就是ABInfo
+public class ResManager
 {
-    public string filePath;
-    public string md5;
-    public string[] depend;
-}
-
-namespace Client
-{
-    public class ResManager
+    static ABInfo[] _assetsObj;
+    static ABInfo[] assetsObj
     {
-        static JsonAssets[] _assetsObj;
-        static JsonAssets[] assetsObj
+        get
         {
-            get
-            {
-                if (_assetsObj == null)
-                    Reload();
-                return _assetsObj;
-            }
+            if (_assetsObj == null)
+                Reload();
+            return _assetsObj;
         }
-        static void Reload()
-        {
-            string assetsPath = $@"{Application.persistentDataPath}\StandaloneWindows64\assets.bytes"; //解析文件
-            string assetsJson = File.ReadAllText(assetsPath);
-            _assetsObj = JsonMapper.ToObject<JsonAssets[]>(assetsJson);
-        }
+    }
+    static void Reload()
+    {
+        string assetsPath = $@"{Application.persistentDataPath}\StandaloneWindows64\assets.bytes"; //解析文件
+        string assetsJson = File.ReadAllText(assetsPath);
+        _assetsObj = JsonMapper.ToObject<ABInfo[]>(assetsJson);
+    }
 
-        public const string BUNDLES_FOLDER = "Assets/Bundles";
-        public const string PREFAB_FOLDER = "Assets/Bundles/Prefabs";
+    public const string BUNDLES_FOLDER = "Assets/Bundles";
+    public const string PREFAB_FOLDER = "Assets/Bundles/Prefabs";
 
-        public static GameObject LoadPrefab(string fileName)
-        {
+    public static GameObject LoadPrefab(string fileName)
+    {
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
-            string filePath = $"Assets/Bundles/{fileName}.prefab";
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(filePath);
+        string filePath = $"Assets/Bundles/{fileName}.prefab";
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(filePath);
 #else
             string filePath = GetFilePath($"{fileName}.unity3d");
 
@@ -67,13 +58,13 @@ namespace Client
                 dependBundles.RemoveAt(i);
             }
 #endif
-            return prefab;
-        }
+        return prefab;
+    }
 
-        public static AudioClip LoadAudioClip(string fileName)
-        {
+    public static AudioClip LoadAudioClip(string fileName)
+    {
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
-            var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{BUNDLES_FOLDER}/{fileName}.mp3");
+        var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{BUNDLES_FOLDER}/{fileName}.mp3");
 #else
             //string filePath0 = $"{BUNDLES_FOLDER}/{fileName}.unity3d";
             //Debug.Log($"filePath0={filePath0}"); //~~Assets/Bundles/Audios/round1.unity3d
@@ -86,28 +77,28 @@ namespace Client
             asset.Unload(false);
             var clip = (AudioClip)config;
 #endif
-            return clip;
-        }
+        return clip;
+    }
 
-        public static object LoadConfig(string configName)
-        {
+    public static object LoadConfig(string configName)
+    {
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
-            string filePath = $"Assets/Bundles/{configName}.asset";
-            object config = AssetDatabase.LoadAssetAtPath<Object>(filePath);
+        string filePath = $"Assets/Bundles/{configName}.asset";
+        object config = AssetDatabase.LoadAssetAtPath<Object>(filePath);
 #else
             string filePath = GetFilePath($"{configName}.unity3d");
             AssetBundle asset = AssetBundle.LoadFromFile(filePath);
             object config = asset.LoadAllAssets()[0];
             asset.Unload(false);
 #endif
-            return config;
-        }
+        return config;
+    }
 
-        public static byte[] LoadDLL()
-        {
+    public static byte[] LoadDLL()
+    {
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
-            string filePath = $"Assets/Bundles/Configs/Hotfix.dll.bytes";
-            TextAsset textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
+        string filePath = $"Assets/Bundles/Configs/Hotfix.dll.bytes";
+        TextAsset textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
 #else
             string fileName = "configs/hotfix";
             string filePath = GetFilePath($"{fileName}.unity3d"); //文件名是加密子串
@@ -115,66 +106,65 @@ namespace Client
             TextAsset textAsset = asset.LoadAllAssets()[0] as TextAsset;
             asset.Unload(false);
 #endif
-            return textAsset.bytes;
-        }
+        return textAsset.bytes;
+    }
 
-        public static Sprite[] LoadSprite(string configName)
-        {
-            Sprite[] sp;
+    public static Sprite[] LoadSprite(string configName)
+    {
+        Sprite[] sp;
 #if UNITY_EDITOR && !USE_ASSETBUNDLE
-            string filePath = $"Assets/Bundles/{configName}.png";
-            var assets = AssetDatabase.LoadAllAssetsAtPath(filePath);
+        string filePath = $"Assets/Bundles/{configName}.png";
+        var assets = AssetDatabase.LoadAllAssetsAtPath(filePath);
 #else
             string filePath = GetFilePath($"{configName}.unity3d");
             AssetBundle asset = AssetBundle.LoadFromFile(filePath);
             var assets = asset.LoadAllAssets();
             asset.Unload(false);
 #endif
-            int count = assets.Count();
-            //Debug.Log($"子物体：{count}个");
+        int count = assets.Count();
+        //Debug.Log($"子物体：{count}个");
 
-            sp = new Sprite[count - 1];
-            for (int i = 1; i < count; i++)
-            {
-                var subAsset = assets[i];
-                //Debug.Log($"{i}---{asset.name}");
-                sp[i - 1] = subAsset as Sprite;
-            }
-
-            return sp;
+        sp = new Sprite[count - 1];
+        for (int i = 1; i < count; i++)
+        {
+            var subAsset = assets[i];
+            //Debug.Log($"{i}---{asset.name}");
+            sp[i - 1] = subAsset as Sprite;
         }
 
-        static string GetFilePath(string assetName)
-        {
-            JsonAssets obj = assetsObj.Where(x => x.filePath == assetName.ToLower()).FirstOrDefault();
-            //Debug.Log($"assetName={assetName}");
-            string result = $"{Application.persistentDataPath}/StandaloneWindows64/{obj.md5}.unity3d";
-            //Debug.Log($"<color=green>result={result}</color>");
-            return result;
-        }
+        return sp;
+    }
 
-        static string[] GetDepends(string assetName)
-        {
-            JsonAssets obj = assetsObj.Where(x => x.filePath == assetName.ToLower()).FirstOrDefault();
-            return obj.depend;
-        }
+    static string GetFilePath(string assetName)
+    {
+        ABInfo obj = assetsObj.Where(x => x.filePath == assetName.ToLower()).FirstOrDefault();
+        //Debug.Log($"assetName={assetName}");
+        string result = $"{Application.persistentDataPath}/StandaloneWindows64/{obj.md5}.unity3d";
+        //Debug.Log($"<color=green>result={result}</color>");
+        return result;
+    }
 
-        private static Dictionary<string, GameObject> GameObjectPool = new Dictionary<string, GameObject>();
-        public static GameObject GetGameObject(string key)
+    static string[] GetDepends(string assetName)
+    {
+        ABInfo obj = assetsObj.Where(x => x.filePath == assetName.ToLower()).FirstOrDefault();
+        return obj.depend;
+    }
+
+    private static Dictionary<string, GameObject> GameObjectPool = new Dictionary<string, GameObject>();
+    public static GameObject GetGameObject(string key)
+    {
+        GameObject obj = null;
+        if (GameObjectPool.TryGetValue(key, out obj))
         {
-            GameObject obj = null;
-            if (GameObjectPool.TryGetValue(key, out obj))
-            {
-                //Debug.Log($"从对象池获取：{key}");
-                return obj;
-            }
-            else
-            {
-                //Debug.Log($"新建：{key}");
-                obj = LoadPrefab(key);
-                GameObjectPool.Add(key, obj);
-                return obj;
-            }
+            //Debug.Log($"从对象池获取：{key}");
+            return obj;
+        }
+        else
+        {
+            //Debug.Log($"新建：{key}");
+            obj = LoadPrefab(key);
+            GameObjectPool.Add(key, obj);
+            return obj;
         }
     }
 }

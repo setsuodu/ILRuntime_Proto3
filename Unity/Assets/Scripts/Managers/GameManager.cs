@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
             yield break;
         }
         string text = request.downloadHandler.text;
-        //Debug.Log($"success: {text}");
+        Debug.Log($"success: {text}");
         gameConfig = JsonMapper.ToObject<GameConfig>(text);
         request.Dispose();
 

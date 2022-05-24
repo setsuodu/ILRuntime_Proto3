@@ -52,7 +52,7 @@ namespace HotFix
         {
             Debug.Log("!!! SomeMonoBehaviour2.Test2");
 
-            var obj = Client.ResManager.LoadPrefab("UI/UI_Main");
+            var obj = ResManager.LoadPrefab("UI/UI_Main");
             var go = Instantiate(obj, parent);
             go.name = "UI_Main";
             list.Add(go);

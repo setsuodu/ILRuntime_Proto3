@@ -2,22 +2,12 @@
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using UnityEditor;
 using Debug = UnityEngine.Debug;
 
 internal class OpcodeInfo
 {
     public string Name;
     public int Opcode;
-}
-
-public class ToolsEditor
-{
-    [MenuItem("Tools/Proto2CS")]
-    public static void Proto2CS()
-    {
-        InnerProto2CS.Proto2CS();
-    }
 }
 
 public static class InnerProto2CS

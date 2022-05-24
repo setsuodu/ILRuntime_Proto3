@@ -42,57 +42,12 @@ public partial class BundleTools : Editor
         proc.Start();
     }
 
-    #region 测试
-
-    [MenuItem("Tools/取消读条")]
-    static void CancelableProgressBar()
-    {
-        EditorUtility.ClearProgressBar();
-    }
-    [MenuItem("Tools/测试/CMD")]
-    private static void TestCMD()
-    {
-        ExecuteCommand(@"ipconfig /flushdns");
-        //ExecuteCommand(@"ping www.baidu.com");
-    }
-    [MenuItem("Tools/测试/打包目标平台")]
-    private static void GetCurrentTarget()
-    {
-        Debug.Log(BuildTarget.StandaloneWindows64);
-    }
-    private static void Clean_Cookies()
-    {
-        PlayerPrefs.DeleteAll();
-        Debug.Log("清理完成");
-    }
-    [MenuItem("Tools/测试/清理临时文件夹")]
-    private static void ClearTmpFolders()
-    {
-        // 两个需要清理的目录
-        // ./Assets/StreamingAssets/Bundles
-        // ./StandaloneWindows64
-        string[] pathArray = new string[]
-        {
-            Path.Combine(Application.streamingAssetsPath, "Bundles"),
-            Path.Combine(GetUnityDir(), "StandaloneWindows64"),
-        };
-        for (int i = 0; i < pathArray.Length; i++)
-        {
-            var path = pathArray[i];
-            if (Directory.Exists(path))
-                Directory.Delete(path, true);
-        }
-        Debug.Log("清理完成");
-    }
-
-    #endregion
-
     #region 热更新
 
     [MenuItem("Tools/热更新/生成Proto", false, 21)]
     private static void ConvertProto()
     {
-        RunBatch("convert_proto.bat");
+        InnerProto2CS.Proto2CS();
     }
     [MenuItem("Tools/热更新/编译热更工程", false, 22)]
     private static void CompileHotFix()
@@ -122,9 +77,9 @@ public partial class BundleTools : Editor
         Debug.Log("移动完成");
     }
 
-    [MenuItem("Tools/Shader/重置IncludedShaders")]
+    [MenuItem("Tools/Shader/重置IncludedShaders", true)]
     private static void ResetIncludedShaders() { }
-    [MenuItem("Tools/Shader/设置IncludedShaders")]
+    [MenuItem("Tools/Shader/设置IncludedShaders", true)]
     private static void SetIncludedShaders() { }
 
     [MenuItem("Assets/Open Server Project", false)]
@@ -144,7 +99,7 @@ public partial class BundleTools : Editor
         };
         proc.Start();
     }
-    [MenuItem("Tools/服务器/打开服务器AB资源存放目录", false)]
+    [MenuItem("Tools/服务器/打开服务器AB资源存放目录", true)]
     private static void OpenBundleServer()
     {
         Process.Start("explorer.exe", GetServerDir());
